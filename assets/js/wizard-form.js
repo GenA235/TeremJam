@@ -523,7 +523,7 @@
 
 		// Here you would typically send data to server
 		// For now, we'll just redirect to payment page
-		alert('Форма отправлена! В реальном приложении здесь будет редирект на страницу оплаты.');
+		alert('Форма отправлена(скоро будет, как допилим)! Здесь будет редирект на страницу оплаты.');
 		
 		// Example redirect (uncomment when ready):
 		// window.location.href = 'https://payment.example.com/checkout';
@@ -537,3 +537,4 @@
 	}
 
 })();
+
