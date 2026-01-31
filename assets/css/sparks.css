@@ -1,0 +1,30 @@
+/*
+	Модуль анимации искорок (sparks)
+	Эффект летающих искорок, как от костра
+*/
+
+#sparks-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+.spark {
+	position: absolute;
+	width: var(--spark-size, 3px);
+	height: var(--spark-size, 3px);
+	background-color: var(--spark-color, #ff6b35);
+	border-radius: 50%;
+	opacity: 0;
+	will-change: transform, opacity, left, top;
+	pointer-events: none;
+	box-shadow: 0 0 var(--spark-glow-size, 6px) var(--spark-color, #ff6b35);
+	transition: none; /* Убираем transition для плавного JS управления */
+}
+
+/* Анимация движения теперь полностью управляется через JS для плавности и реакции на курсор */

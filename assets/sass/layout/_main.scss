@@ -7,7 +7,7 @@
 /* Main */
 
 	#main {
-		background-color: _palette(bg);
+		background-color: var(--main-background-color, rgba(255, 255, 255, 0.6)); /* Полупрозрачный фон (мутное стекло) - настраивается в config.css */
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - #{_size(padding) * 2});
@@ -16,7 +16,7 @@
 
 		> * {
 			@include padding((_size(padding) * 2), (_size(padding) * 2));
-			border-top: solid 2px _palette(border);
+			border-top: none; /* Убрана белая полоска над элементами */
 			margin: 0;
 
 			&:first-child {

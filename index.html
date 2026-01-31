@@ -9,7 +9,11 @@
 		<title>TeremJam</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/config.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/sparks.css" />
+		<link rel="stylesheet" href="assets/css/wizard-form.css" />
+		<link rel="stylesheet" href="assets/css/top-section.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -36,7 +40,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">This is Massively</a></li>
+							<li class="active"><a href="index.html">JAM</a></li>
 							<li><span class="disabled">Где мы</span></li>
 							<li><span class="disabled">Контакты</span></li>
 						</ul>
@@ -119,8 +123,8 @@
 							</div>
 						</section>
 
-						<!-- Блок 5 -->
-						<section class="content-block" data-block="5" data-image-position="left" data-text-animation="fadeIn" data-image-animation="fadeIn">
+						<!-- Блок 9 (Покупка билета) - перемещен перед блоком 5 -->
+						<section class="content-block" data-block="9" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
 							<div class="block-content">
 								<div class="block-text">
 									<h2>Обычный билет даёт всё:</h2>
@@ -130,25 +134,224 @@
 										<br>•	Место в палаточном лагере (душ с горячей водой, туалеты, питьевая вода и кипяток)
 										<br>•	Групповая экскурсия по Терему
 										</p>
-								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic05.jpg" alt="" /></span>
-								</div>
-							</div>
-						</section>
-
-						<!-- Блок 6 -->
-						<section class="content-block" data-block="6" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInRight">
-							<div class="block-content">
-								<div class="block-text">
-									<h2>Специальные тарифы:</h2>
+									<h2><br><br><br>Специальные тарифы:</h2>
 									<p><br>•	Семейный — скидки для детей
 										<br>•	Однодневный — без ночёвки
 										<br>•	Групповой (от 3 человек) — вместе веселее и дешевле!
 										</p>
 								</div>
 								<div class="block-image">
-									<span class="image fit"><img src="images/pic06.jpg" alt="" /></span>
+									<div class="ticket-wizard-form">
+										<!-- Progress Bar -->
+										<div class="wizard-progress">
+											<div class="progress-steps">
+												<div class="progress-step active" data-step="1">
+													<span class="step-number">1</span>
+													<span class="step-label">Тип билета</span>
+												</div>
+												<div class="progress-step" data-step="2">
+													<span class="step-number">2</span>
+													<span class="step-label">Детали</span>
+												</div>
+												<div class="progress-step" data-step="3">
+													<span class="step-number">3</span>
+													<span class="step-label">Доп. услуги</span>
+												</div>
+												<div class="progress-step" data-step="4">
+													<span class="step-number">4</span>
+													<span class="step-label">Оплата</span>
+												</div>
+											</div>
+											<div class="progress-bar">
+												<div class="progress-fill" style="width: 25%"></div>
+											</div>
+										</div>
+
+										<!-- Form Steps -->
+										<form id="ticketForm" class="wizard-form">
+											<!-- Step 1: Ticket Type -->
+											<div class="wizard-step active" data-step="1">
+												<div class="field">
+													<label for="ticketType">Выберите тип билета</label>
+													<select name="ticketType" id="ticketType" required>
+														<option value="standard" data-price="5000" data-price-from="false" selected>Стандартный</option>
+														<option value="family" data-price="4000" data-price-from="false">Семейный</option>
+														<option value="oneday" data-price="2000" data-price-from="false">Один день</option>
+														<option value="group" data-price="4500" data-price-from="false">С друзьями (от 3 чел.)</option>
+													</select>
+													<div class="ticket-description" id="ticketDescription">
+														<div class="ticket-price" id="ticketPrice"></div>
+														<div class="ticket-info" id="ticketInfo"></div>
+													</div>
+												</div>
+												<button type="button" class="button wizard-next step1-next" disabled>Далее</button>
+											</div>
+
+											<!-- Step 2: Details -->
+											<div class="wizard-step" data-step="2">
+												<div class="field">
+													<label>Количество билетов</label>
+													<div class="counter-group">
+														<div class="counter-item">
+															<label for="adults">Взрослые</label>
+															<div class="counter-controls">
+																<button type="button" class="counter-btn minus" data-target="adults">-</button>
+																<input type="number" id="adults" name="adults" value="1" min="1" readonly>
+																<button type="button" class="counter-btn plus" data-target="adults">+</button>
+															</div>
+														</div>
+														<div class="counter-item">
+															<label for="children">Дети</label>
+															<div class="counter-controls">
+																<button type="button" class="counter-btn minus" data-target="children">-</button>
+																<input type="number" id="children" name="children" value="0" min="0" readonly>
+																<button type="button" class="counter-btn plus" data-target="children">+</button>
+															</div>
+														</div>
+													</div>
+													<div class="group-discount" id="groupDiscount" style="display: none;">
+														<span class="discount-badge">Скидка за группу: -10%</span>
+													</div>
+												</div>
+												<div class="fields">
+													<div class="field">
+														<label for="name">Имя</label>
+														<input type="text" name="name" id="name" required autocomplete="name">
+														<span class="error-message"></span>
+													</div>
+													<div class="field">
+														<label for="email">Email</label>
+														<input type="email" name="email" id="email" required autocomplete="email">
+														<span class="error-message"></span>
+													</div>
+													<div class="field">
+														<label for="phone">Телефон</label>
+														<input type="tel" name="phone" id="phone" required autocomplete="tel">
+														<span class="error-message"></span>
+													</div>
+												</div>
+												<div class="field">
+													<input type="checkbox" name="agree" id="agree" required>
+													<label for="agree">Согласен с <a href="#" class="rules-link" target="_blank">правилами</a></label>
+													<span class="error-message"></span>
+												</div>
+												<div class="wizard-buttons">
+													<button type="button" class="button wizard-prev">Назад</button>
+													<button type="button" class="button wizard-next">Далее</button>
+												</div>
+											</div>
+
+											<!-- Step 3: Additional Services -->
+											<div class="wizard-step" data-step="3">
+												<div class="field">
+													<label>Дополнительные услуги</label>
+													<div class="services-list">
+														<div class="service-item">
+															<input type="checkbox" name="services[]" id="service-tent" value="tent" data-price="500">
+															<label for="service-tent">
+																<span class="service-name">Аренда палатки</span>
+																<span class="service-price">500 ₽</span>
+																<span class="service-tooltip" data-tooltip="Палатка на 2-3 человека, спальник в комплекте">ℹ️</span>
+															</label>
+														</div>
+														<div class="service-item">
+															<input type="checkbox" name="services[]" id="service-sleeping" value="sleeping" data-price="300">
+															<label for="service-sleeping">
+																<span class="service-name">Аренда спальника</span>
+																<span class="service-price">300 ₽</span>
+																<span class="service-tooltip" data-tooltip="Теплый спальник на весь период">ℹ️</span>
+															</label>
+														</div>
+														<div class="service-item">
+															<input type="checkbox" name="services[]" id="service-transfer-msk" value="transfer-msk" data-price="1500">
+															<label for="service-transfer-msk">
+																<span class="service-name">Трансфер из Москвы</span>
+																<span class="service-price">1500 ₽</span>
+																<span class="service-tooltip" data-tooltip="Комфортабельный автобус, туда-обратно">ℹ️</span>
+															</label>
+														</div>
+														<div class="service-item">
+															<input type="checkbox" name="services[]" id="service-transfer-galich" value="transfer-galich" data-price="500">
+															<label for="service-transfer-galich">
+																<span class="service-name">Трансфер от Галича</span>
+																<span class="service-price">500 ₽</span>
+																<span class="service-tooltip" data-tooltip="Трансфер от ж/д вокзала Галича">ℹ️</span>
+															</label>
+														</div>
+														<div class="service-item">
+															<input type="checkbox" name="services[]" id="service-banya" value="banya" data-price="500">
+															<label for="service-banya">
+																<span class="service-name">Баня</span>
+																<span class="service-price">500 ₽</span>
+																<span class="service-tooltip" data-tooltip="Русская баня">ℹ️</span>
+															</label>
+														</div>
+														<div class="service-item">
+															<input type="checkbox" name="services[]" id="service-pogorelovo" value="pogorelovo" data-price="300">
+															<label for="service-pogorelovo">
+																<span class="service-name">Экскурсия в Погорелово</span>
+																<span class="service-price">300 ₽</span>
+																<span class="service-tooltip" data-tooltip="Экскурсия в соседнее село">ℹ️</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="total-summary">
+													<div class="total-line">
+														<span>Билеты:</span>
+														<span id="totalTickets">0 ₽</span>
+													</div>
+													<div class="total-line">
+														<span>Доп. услуги:</span>
+														<span id="totalServices">0 ₽</span>
+													</div>
+													<div class="total-line discount-line" id="discountLine" style="display: none;">
+														<span>Скидка:</span>
+														<span id="totalDiscount">-0 ₽</span>
+													</div>
+													<div class="total-line total-final">
+														<span>Итого:</span>
+														<span id="totalFinal">0 ₽</span>
+													</div>
+												</div>
+												<div class="wizard-buttons">
+													<button type="button" class="button wizard-prev">Назад</button>
+													<button type="button" class="button wizard-next">Далее</button>
+												</div>
+											</div>
+
+											<!-- Step 4: Payment -->
+											<div class="wizard-step" data-step="4">
+												<div class="payment-summary">
+													<h3>Итоговая информация</h3>
+													<div class="summary-item">
+														<strong>Тип билета:</strong>
+														<span id="summaryTicketType"></span>
+													</div>
+													<div class="summary-item">
+														<strong>Количество:</strong>
+														<span id="summaryQuantity"></span>
+													</div>
+													<div class="summary-item">
+														<strong>Контакт:</strong>
+														<span id="summaryContact"></span>
+													</div>
+													<div class="summary-item">
+														<strong>Доп. услуги:</strong>
+														<span id="summaryServices"></span>
+													</div>
+													<div class="summary-item total-final">
+														<strong>К оплате:</strong>
+														<span id="summaryTotal"></span>
+													</div>
+												</div>
+												<div class="wizard-buttons">
+													<button type="button" class="button wizard-prev">Назад</button>
+													<button type="submit" class="button primary wizard-submit">Оплатить</button>
+												</div>
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
 						</section>
@@ -162,7 +365,7 @@
 								<div class="block-text">
 									<h2>Цены</h2>
 									<p>Цены растут поэтапно: выгоднее всего купить до 24 февраля 2026, потом до 30 апреля и до 26 мая. 
-										<br>Покупка — на сайте astashovo.com.
+									
 										<br>Не входит в билет: питание (готовим сами или покупаем на месте), лагерное снаряжение (аренда по предзаявке), трансфер, проживание в номерах Терема (бронируется отдельно — билет уже включён), баня и экскурсия в Погорелово.
 										</p>
 								</div>
@@ -185,8 +388,8 @@
 							</div>
 						</section>
 
-						<!-- Блок 9 -->
-						<section class="content-block" data-block="9" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
+						<!-- Блок 10 -->
+						<section class="content-block" data-block="10" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
 							<div class="block-content">
 								<div class="block-text">
 									<h2>Хотите быть ближе к волшебству?</h2>
@@ -203,8 +406,8 @@
 							</div>
 						</section>
 
-						<!-- Блок 10 -->
-						<section class="content-block" data-block="10" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
+						<!-- Блок 11 -->
+						<section class="content-block" data-block="11" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
 								<div class="block-text">
 									<h2>ТеремJam</h2>
@@ -278,13 +481,15 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sparks.js"></script>
+		<script src="assets/js/wizard-form.js"></script>
 
 	</body>
 </html>

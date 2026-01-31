@@ -4,12 +4,20 @@
 
 /* Content Blocks */
 
+/* Переменные для блоков вынесены в assets/css/config.css */
+
 	.content-block {
 		padding: 4rem 4rem 2rem 4rem;
-		border-top: solid 2px #eeeeee;
+		border-top: none; // Убрана белая полоска над блоками
+		margin-top: var(--content-block-spacing, 2rem) !important; // Общее расстояние для всех блоков (настраивается через :root)
+		background-color: var(--content-block-background-color, #ffffff); // Фон блока (карта) - настраивается в config.css
+		color: var(--content-block-text-color, #212931); // Цвет текста в блоках - настраивается в config.css
+		position: relative;
+		z-index: 1;
 
 		&:first-child {
 			border-top: 0;
+			margin-top: 0 !important; // Первый блок без отступа сверху
 		}
 
 		.block-content {
@@ -47,10 +55,17 @@
 
 		.block-text h2 {
 			margin-bottom: 1.5rem;
+			color: var(--content-block-text-color, #212931); // Цвет заголовков - настраивается в config.css
 		}
 
 		.block-text p {
 			margin-bottom: 0;
+			color: var(--content-block-text-color, #212931); // Цвет текста - настраивается в config.css
+		}
+
+		// Применяем цвет текста ко всем элементам внутри блоков
+		& h1, & h2, & h3, & h4, & h5, & h6, & p, & li, & span {
+			color: var(--content-block-text-color, #212931);
 		}
 
 		/* Animation states */
@@ -170,6 +185,9 @@
 
 		@include breakpoint('<=small') {
 			padding: 2rem 2rem 0.1rem 2rem;
+			// Расстояние между блоками на мобильных уменьшается в 2 раза
+			margin-top: calc(var(--content-block-spacing) * 0.5) !important;
+			background-color: var(--content-block-background-color, #ffffff); // Фон блока на мобильных - настраивается в config.css
 
 			.block-content {
 				flex-direction: column !important;
@@ -184,3 +202,4 @@
 				min-width: 100%;
 			}
 		}
+	}

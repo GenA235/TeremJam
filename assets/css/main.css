@@ -102,6 +102,8 @@ input, select, textarea {
 		background-color: #1e252d;
 	}
 
+	/* Переменные для блоков вынесены в assets/css/config.css */
+
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
@@ -3805,7 +3807,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #ffffff;
+		background-color: var(--main-background-color, rgba(255, 255, 255, 0.6)); /* Полупрозрачный фон (мутное стекло) - виден между блоками */
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -3817,11 +3819,17 @@ input, select, textarea {
 
 	.content-block {
 		padding: 4rem 4rem 2rem 4rem;
-		border-top: solid 2px #eeeeee;
+		border-top: none; /* Убрана белая полоска над блоками */
+		margin-top: var(--content-block-spacing, 2rem) !important; /* !important чтобы переопределить #main > * { margin: 0; } */
+		background-color: var(--content-block-background-color, #ffffff); /* Фон блока (карта) - настраивается в config.css */
+		color: var(--content-block-text-color, #212931); /* Цвет текста в блоках - настраивается в config.css */
+		position: relative;
+		z-index: 1;
 	}
 
 		.content-block:first-child {
 			border-top: 0;
+			margin-top: 0 !important; /* Первый блок без отступа сверху */
 		}
 
 		.content-block .block-content {
@@ -3859,10 +3867,25 @@ input, select, textarea {
 
 		.content-block .block-text h2 {
 			margin-bottom: 1.5rem;
+			color: var(--content-block-text-color, #212931); /* Цвет заголовков - настраивается в config.css */
 		}
 
 		.content-block .block-text p {
 			margin-bottom: 0;
+			color: var(--content-block-text-color, #212931); /* Цвет текста - настраивается в config.css */
+		}
+
+		/* Применяем цвет текста ко всем элементам внутри блоков */
+		.content-block h1,
+		.content-block h2,
+		.content-block h3,
+		.content-block h4,
+		.content-block h5,
+		.content-block h6,
+		.content-block p,
+		.content-block li,
+		.content-block span {
+			color: var(--content-block-text-color, #212931);
 		}
 
 		/* Animation states */
@@ -3981,6 +4004,8 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 			.content-block {
 				padding: 2rem 2rem 0.1rem 2rem;
+				margin-top: calc(var(--content-block-spacing) * 0.5) !important; /* На мобильных расстояние уменьшается в 2 раза */
+				background-color: var(--content-block-background-color, #ffffff); /* Фон блока на мобильных - настраивается в config.css */
 			}
 
 			.content-block .block-content {
@@ -3999,7 +4024,7 @@ input, select, textarea {
 
 		#main > * {
 			padding: 4rem 4rem 2rem 4rem ;
-			border-top: solid 2px #eeeeee;
+			border-top: none; /* Убрана белая полоска над элементами */
 			margin: 0;
 		}
 
