@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<!--
+	Payment Page - ТеремJam 2026
+-->
+<html>
+	<head>
+		<title>Оплата - ТеремJam 2026</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/config.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/sparks.css" />
+		<link rel="stylesheet" href="assets/css/wizard-form.css" />
+		<link rel="stylesheet" href="assets/css/top-section.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">TeremJam</a>
+						<p>Оплата билетов</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<section class="content-block" data-block="payment">
+							<div class="block-content">
+								<div class="block-text" style="width: 100%; max-width: 800px; margin: 0 auto;">
+									<h2>Оплата билетов</h2>
+									
+									<div class="ticket-wizard-form">
+										<!-- Payment Summary -->
+										<div class="payment-summary">
+											<h3>Итоговая информация</h3>
+											<div class="summary-item">
+												<strong>Тип билета:</strong>
+												<span id="summaryTicketType">-</span>
+											</div>
+											<div class="summary-item">
+												<strong>Количество:</strong>
+												<span id="summaryQuantity">-</span>
+											</div>
+											<div class="summary-item">
+												<strong>Контакт:</strong>
+												<span id="summaryContact">-</span>
+											</div>
+											<div class="summary-item">
+												<strong>Доп. услуги:</strong>
+												<span id="summaryServices">-</span>
+											</div>
+											<div class="summary-item total-final">
+												<strong>К оплате:</strong>
+												<span id="summaryTotal">-</span>
+											</div>
+										</div>
+
+										<!-- Payment Form -->
+										<form id="paymentForm" class="wizard-form" style="margin-top: 2rem;">
+											<div class="field">
+												<label for="cardNumber">Номер карты</label>
+												<input type="text" name="cardNumber" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required>
+												<span class="error-message"></span>
+											</div>
+											<div class="fields">
+												<div class="field">
+													<label for="cardExpiry">Срок действия</label>
+													<input type="text" name="cardExpiry" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+													<span class="error-message"></span>
+												</div>
+												<div class="field">
+													<label for="cardCVC">CVC</label>
+													<input type="text" name="cardCVC" id="cardCVC" placeholder="000" maxlength="3" required>
+													<span class="error-message"></span>
+												</div>
+											</div>
+											<div class="field">
+												<label for="cardName">Имя на карте</label>
+												<input type="text" name="cardName" id="cardName" placeholder="IVAN IVANOV" required>
+												<span class="error-message"></span>
+											</div>
+											<div class="wizard-buttons">
+												<a href="index.html" class="button">Назад к форме</a>
+												<button type="submit" class="button primary wizard-submit">Оплатить</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section>
+								<h3>Вопросы по оплате?</h3>
+								<p>Свяжитесь с нами: <a href="#">@TeremJam_support</a></p>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; TeremJam 2026</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/sparks.js"></script>
+		<script src="assets/js/payment.js"></script>
+
+	</body>
+</html>

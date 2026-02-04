@@ -1,0 +1,388 @@
+/* TZ (tz_1.txt) components - built on top of existing palette/fonts */
+
+/* -----------------------------
+   HERO (Intro)
+------------------------------ */
+
+#intro.tz-hero {
+	position: relative;
+	overflow: hidden;
+	padding: 7rem 2rem 5rem 2rem;
+}
+
+#intro.tz-hero .tz-hero-media {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+#intro.tz-hero .tz-hero-media video,
+#intro.tz-hero .tz-hero-media img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#intro.tz-hero .tz-hero-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background:
+		linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 65%, rgba(0,0,0,0.85) 100%);
+}
+
+#intro.tz-hero .tz-hero-inner {
+	position: relative;
+	z-index: 2;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+#intro.tz-hero h1 {
+	font-size: clamp(2.4rem, 5vw, 4.5rem);
+	line-height: 1.05;
+	margin-bottom: 1rem;
+}
+
+#intro.tz-hero .tz-subtitle {
+	font-size: 1.15rem;
+	font-style: italic;
+	max-width: 60ch;
+	margin: 0 auto 1.75rem auto;
+	opacity: 0.95;
+}
+
+.tz-facts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+	margin: 1.25rem auto 1.5rem auto;
+	max-width: 1000px;
+}
+
+.tz-fact {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.65rem 0.85rem;
+	border-radius: 999px;
+	background: rgba(26, 28, 23, 0.55);
+	border: 1px solid rgba(248, 255, 196, 0.25);
+	backdrop-filter: blur(4px);
+}
+
+.tz-fact .icon {
+	color: var(--content-block-text-color, #f8ffc4);
+	opacity: 0.95;
+}
+
+.tz-fact span {
+	color: var(--top-section-text-color, #edeec4);
+	font-size: 0.95rem;
+	letter-spacing: 0.02em;
+}
+
+.tz-bullets {
+	list-style: none;
+	padding-left: 0;
+	max-width: 900px;
+	margin: 1.25rem auto 1.75rem auto;
+	text-align: left;
+}
+
+.tz-bullets li {
+	display: flex;
+	gap: 0.75rem;
+	align-items: flex-start;
+	padding: 0.65rem 0.9rem;
+	border-radius: 12px;
+	background: rgba(26, 28, 23, 0.45);
+	border: 1px solid rgba(248, 255, 196, 0.18);
+	margin-bottom: 0.6rem;
+}
+
+.tz-bullets li .icon {
+	margin-top: 0.15rem;
+	color: var(--wizard-form-discount-color, #ff6b35);
+}
+
+.tz-bullets li span {
+	color: var(--top-section-text-color, #edeec4);
+}
+
+.tz-cta-row {
+	display: flex;
+	gap: 0.75rem;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 1.25rem;
+}
+
+/* -----------------------------
+   NAV additions
+------------------------------ */
+
+#nav .tz-nav-actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#nav .tz-nav-actions .button {
+	height: auto;
+	line-height: 1;
+	padding: 0.85rem 1.05rem;
+	border-radius: 6px;
+}
+
+@media screen and (min-width: 981px) {
+	#nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	#nav ul.links {
+		flex: 1;
+	}
+}
+
+/* -----------------------------
+   Cards / grids
+------------------------------ */
+
+.tz-card-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 1rem;
+}
+
+.tz-card {
+	grid-column: span 12;
+	background: rgba(248, 255, 196, 0.06);
+	border: 1px solid rgba(248, 255, 196, 0.22);
+	border-radius: 12px;
+	padding: 1.25rem 1.25rem;
+}
+
+.tz-card h3 {
+	margin: 0 0 0.5rem 0;
+}
+
+.tz-card p {
+	margin: 0;
+	opacity: 0.95;
+}
+
+.tz-card .tz-card-meta {
+	margin-top: 0.85rem;
+	opacity: 0.9;
+	font-size: 0.95rem;
+}
+
+.tz-card .tz-card-actions {
+	margin-top: 1rem;
+	display: flex;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+@media screen and (min-width: 737px) {
+	.tz-card.grid-6 { grid-column: span 6; }
+	.tz-card.grid-4 { grid-column: span 4; }
+	.tz-card.grid-3 { grid-column: span 3; }
+}
+
+/* -----------------------------
+   Photo wall
+------------------------------ */
+
+.tz-photo-wall {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 0.75rem;
+}
+
+.tz-photo-wall a,
+.tz-photo-wall span {
+	display: block;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid rgba(248, 255, 196, 0.16);
+	background: rgba(0,0,0,0.15);
+}
+
+.tz-photo-wall img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.tz-photo-wall .w-6 { grid-column: span 12; aspect-ratio: 16 / 10; }
+.tz-photo-wall .w-4 { grid-column: span 6; aspect-ratio: 1 / 1; }
+.tz-photo-wall .w-3 { grid-column: span 6; aspect-ratio: 4 / 5; }
+
+@media screen and (min-width: 737px) {
+	.tz-photo-wall .w-6 { grid-column: span 6; }
+	.tz-photo-wall .w-4 { grid-column: span 4; }
+	.tz-photo-wall .w-3 { grid-column: span 3; }
+}
+
+/* -----------------------------
+   Carousels (no JS) - scroll-snap
+------------------------------ */
+
+.tz-carousel {
+	display: flex;
+	gap: 0.75rem;
+	overflow-x: auto;
+	padding-bottom: 0.35rem;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+
+.tz-carousel::-webkit-scrollbar {
+	height: 8px;
+}
+
+.tz-carousel::-webkit-scrollbar-thumb {
+	background: rgba(248, 255, 196, 0.25);
+	border-radius: 999px;
+}
+
+.tz-carousel .tz-slide {
+	scroll-snap-align: start;
+	flex: 0 0 min(520px, 88%);
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid rgba(248, 255, 196, 0.18);
+	background: rgba(0,0,0,0.15);
+}
+
+.tz-carousel .tz-slide img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+	aspect-ratio: 16 / 10;
+}
+
+/* -----------------------------
+   Schedule columns
+------------------------------ */
+
+.tz-schedule {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 1rem;
+}
+
+.tz-day {
+	grid-column: span 12;
+	background: rgba(248, 255, 196, 0.06);
+	border: 1px solid rgba(248, 255, 196, 0.18);
+	border-radius: 12px;
+	padding: 1rem 1rem;
+}
+
+.tz-day h3 {
+	margin-top: 0;
+	margin-bottom: 0.75rem;
+}
+
+.tz-day ul {
+	margin: 0;
+	padding-left: 1.15rem;
+}
+
+@media screen and (min-width: 981px) {
+	.tz-day { grid-column: span 4; }
+}
+
+/* -----------------------------
+   FAQ (details)
+------------------------------ */
+
+.tz-faq details {
+	background: rgba(248, 255, 196, 0.05);
+	border: 1px solid rgba(248, 255, 196, 0.18);
+	border-radius: 12px;
+	padding: 0.9rem 1rem;
+	margin-bottom: 0.75rem;
+}
+
+.tz-faq summary {
+	cursor: pointer;
+	font-weight: 900;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.tz-faq details[open] {
+	background: rgba(248, 255, 196, 0.08);
+}
+
+.tz-faq details p {
+	margin: 0.75rem 0 0 0;
+	opacity: 0.95;
+}
+
+/* -----------------------------
+   Reviews horizontal list
+------------------------------ */
+
+.tz-reviews {
+	display: flex;
+	gap: 0.9rem;
+	overflow-x: auto;
+	padding-bottom: 0.35rem;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+
+.tz-review {
+	scroll-snap-align: start;
+	flex: 0 0 min(520px, 90%);
+	background: rgba(248, 255, 196, 0.06);
+	border: 1px solid rgba(248, 255, 196, 0.18);
+	border-radius: 12px;
+	padding: 1.1rem 1.1rem;
+}
+
+.tz-review blockquote {
+	margin: 0;
+}
+
+.tz-review .tz-review-author {
+	margin-top: 0.75rem;
+	opacity: 0.9;
+	font-size: 0.95rem;
+}
+
+/* -----------------------------
+   Map embed
+------------------------------ */
+
+.tz-map {
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid rgba(248, 255, 196, 0.18);
+	background: rgba(0,0,0,0.15);
+}
+
+.tz-map iframe {
+	display: block;
+	width: 100%;
+	height: 360px;
+	border: 0;
+}
+

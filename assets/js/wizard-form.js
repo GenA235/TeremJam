@@ -303,8 +303,19 @@
 		// Apply discount
 		let ticketsTotal = baseTicketsTotal - discountAmount;
 
-		// Services total
-		const servicesTotal = formState.services.reduce((sum, service) => sum + service.price, 0);
+		// Services total - умножаем на количество человек
+		// Услуги, которые не умножаются на количество (например, трансфер)
+		const servicesNotPerPerson = ['transfer-msk', 'transfer-galich'];
+		
+		const servicesTotal = formState.services.reduce((sum, service) => {
+			// Если услуга не в списке исключений, умножаем на количество человек
+			if (servicesNotPerPerson.includes(service.id)) {
+				return sum + service.price;
+			} else {
+				// Для остальных услуг (снаряжение) умножаем на количество человек
+				return sum + (service.price * totalTickets);
+			}
+		}, 0);
 
 		// Final total
 		const finalTotal = ticketsTotal + servicesTotal;
@@ -398,9 +409,47 @@
 			saveStepData();
 
 			formState.currentStep++;
+			
+			// If moving to step 4 (payment), redirect to payment page
+			if (formState.currentStep === 4) {
+				redirectToPayment();
+				return;
+			}
+			
 			updateStepDisplay();
 			updateProgressBar();
 		}
+	}
+
+	// Redirect to payment page
+	function redirectToPayment() {
+		// Calculate final total
+		const finalTotal = calculateFinalTotal();
+		
+		// Get form data
+		const name = document.getElementById('name')?.value || '';
+		const email = document.getElementById('email')?.value || '';
+		const phone = document.getElementById('phone')?.value || '';
+		
+		// Prepare order data
+		const orderData = {
+			ticketType: formState.ticketType,
+			ticketPrice: formState.ticketPrice,
+			adults: formState.adults,
+			children: formState.children,
+			services: formState.services,
+			discount: formState.discount,
+			total: finalTotal,
+			name: name,
+			email: email,
+			phone: phone
+		};
+		
+		// Save to localStorage
+		localStorage.setItem('teremjam_order', JSON.stringify(orderData));
+		
+		// Redirect to payment page
+		window.location.href = 'payment.html';
 	}
 
 	// Previous step
@@ -506,13 +555,33 @@
 		const baseTicketsTotal = basePrice * totalTickets;
 		const discountAmount = formState.discount > 0 ? (baseTicketsTotal * formState.discount) : 0;
 		const ticketsTotal = baseTicketsTotal - discountAmount;
-		const servicesTotal = formState.services.reduce((sum, service) => sum + service.price, 0);
+		
+		// Услуги, которые не умножаются на количество (например, трансфер)
+		const servicesNotPerPerson = ['transfer-msk', 'transfer-galich'];
+		
+		const servicesTotal = formState.services.reduce((sum, service) => {
+			// Если услуга не в списке исключений, умножаем на количество человек
+			if (servicesNotPerPerson.includes(service.id)) {
+				return sum + service.price;
+			} else {
+				// Для остальных услуг (снаряжение) умножаем на количество человек
+				return sum + (service.price * totalTickets);
+			}
+		}, 0);
+		
 		return ticketsTotal + servicesTotal;
 	}
 
 	// Handle form submission
 	function handleFormSubmit(e) {
 		e.preventDefault();
+
+		// This should not be called anymore as step 4 redirects to payment.html
+		// But keeping it as a fallback
+		if (formState.currentStep === 4) {
+			redirectToPayment();
+			return;
+		}
 
 		if (!validateCurrentStep()) {
 			return;
@@ -521,12 +590,8 @@
 		// Save all data
 		saveStepData();
 
-		// Here you would typically send data to server
-		// For now, we'll just redirect to payment page
-		alert('Форма отправлена(скоро будет, как допилим)! Здесь будет редирект на страницу оплаты.');
-		
-		// Example redirect (uncomment when ready):
-		// window.location.href = 'https://payment.example.com/checkout';
+		// This should not happen as step 4 redirects
+		alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.');
 	}
 
 	// Initialize on DOM ready
@@ -537,4 +602,3 @@
 	}
 
 })();
-

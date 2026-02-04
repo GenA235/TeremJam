@@ -76,3 +76,8 @@
 	box-shadow: inset 0 0 0 2px var(--intro-button-hover-border-color, #18bfef) !important;
 	color: var(--intro-button-hover-text-color, #18bfef) !important;
 }
+
+/* Логотип в header - убираем uppercase */
+#header .logo {
+	text-transform: none !important;
+}

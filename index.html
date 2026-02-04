@@ -6,14 +6,16 @@
 -->
 <html>
 	<head>
-		<title>TeremJam</title>
+		<title>ТеремJam 2026</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/config.css" />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/sparks.css" />
 		<link rel="stylesheet" href="assets/css/wizard-form.css" />
 		<link rel="stylesheet" href="assets/css/top-section.css" />
+		<link rel="stylesheet" href="assets/css/tz.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -22,123 +24,499 @@
 			<div id="wrapper" class="fade-in">
 
 				<!-- Intro -->
-					<div id="intro">
-						<h1>TeremJam 2026</h1>
-						<p>Здесь звучит то, что редко услышишь в городе — живая, искренняя музыка, рожденная из традиций и импровизации.</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
+					<div id="intro" class="tz-hero">
+						<div class="tz-hero-media" aria-hidden="true">
+							<!-- TODO: сюда подставим реальный ролик, когда будет готов (пока работает постер/фото) -->
+							<video autoplay muted loop playsinline poster="images/DSC_2797.webp">
+								<source src="assets/video/teremjam-hero.mp4" type="video/mp4" />
+							</video>
+							<img src="images/bg.jpg" alt="" />
+						</div>
+						<div class="tz-hero-overlay" aria-hidden="true"></div>
+						<div class="tz-hero-inner">
+							<h1>TeremJam</h1>
+							<p class="tz-subtitle">3 дня живой музыки, рожденной из традиций и импровизации, джемов, практик и ремесел в лесном тереме</p>
+
+							<div class="tz-facts" role="list">
+								<div class="tz-fact" role="listitem">
+									<span class="icon solid fa-calendar-alt" aria-hidden="true"></span>
+									<span>29–31 мая 2026</span>
+								</div>
+								<div class="tz-fact" role="listitem">
+									<span class="icon solid fa-moon" aria-hidden="true"></span>
+									<span>3 дня / 2 ночи</span>
+								</div>
+								<div class="tz-fact" role="listitem">
+									<span class="icon solid fa-map-marker-alt" aria-hidden="true"></span>
+									<span>Асташово / Костромская область</span>
+								</div>
+							</div>
+
+							<ul class="tz-bullets">
+								<li><span class="icon solid fa-music" aria-hidden="true"></span><span>2 сцены + ночные джемы (да, те самые “до мурашек”)</span></li>
+								<li><span class="icon solid fa-theater-masks" aria-hidden="true"></span><span>концерты / перформансы / мастер-классы</span></li>
+								<li><span class="icon solid fa-hot-tub" aria-hidden="true"></span><span>инфраструктура: горячий душ / санблок / еда / трансфер</span></li>
+							</ul>
+
+							<div class="tz-cta-row">
+								<a href="#tickets" class="button primary scrolly">Купить билет</a>
+								<a href="#about" class="button scrolly">О фестивале</a>
+							</div>
+
+							<ul class="actions" style="margin-top: 2rem;">
+								<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Дальше</a></li>
+							</ul>
+						</div>
 					</div>
 
 				<!-- Header -->
 					<header id="header">
 						<a href="index.html" class="logo">TeremJam</a>
-						<p>ТеремJam — это три дня настоящего волшебства, где музыка, природа и люди сливаются в одно тёплое целое. Мы собираем тех, кто любит искренние звуки, глубокие разговоры у костра и ощущение свободы в глухой тайге. Если вы ищете место, где можно выдохнуть, послушать душу и почувствовать себя живым — добро пожаловать домой.
-						</p>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">JAM</a></li>
-							<li><span class="disabled">Где мы</span></li>
-							<li><span class="disabled">Контакты</span></li>
+							<li class="active"><a href="#about" class="scrolly">О фестивале</a></li>
+							<li><a href="program.html">Программа</a></li>
+							<li><a href="#place" class="scrolly">Локация</a></li>
+							<li><a href="#tickets" class="scrolly">Билеты</a></li>
+							<li><a href="#faq" class="scrolly">FAQ</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://vk.com/teremjam" class="icon brands fa-vk" target="_blank" rel="noopener"><span class="label">VK</span></a></li>
+							<li><a href="https://t.me/teremjam" class="icon brands fa-telegram" target="_blank" rel="noopener"><span class="label">Telegram</span></a></li>
+						</ul>
+						<ul class="tz-nav-actions">
+							<li><a href="#tickets" class="button primary scrolly">Купить билет</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
-
-						<!-- Блок 1 -->
-						<section class="content-block" data-block="1" data-image-position="left" data-text-animation="fadeInUp" data-image-animation="fadeInLeft">
+						<!-- 2) О фестивале -->
+						<section id="about" class="content-block" data-block="about" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInLeft">
 							<div class="block-content">
 								<div class="block-text">
-									<h2>Музыка</h2>
+									<h2>О фестивале</h2>
 									<p>
-										<br>•	Этно-фьюжн и аутентичный фолк 
-										<br>•	Нео-классика и нео-ретро 
-										<br>•	Эмбиент и dark-jazz
-										<br>•	И, конечно же, Jam!
+										TeremJam — это три дня настоящего волшебства, где музыка, природа и люди сливаются в одно теплое целое.
+										Мы собираем тех, кто любит искренние звуки, глубокие разговоры у костра и ощущение свободы в глухой тайге.
+										Если вы ищете место, где можно выдохнуть, послушать душу и почувствовать себя живым — добро пожаловать домой.
 									</p>
+
+									<h3 style="margin-top: 1.5rem;">Цифры</h3>
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-4">
+											<h3><span class="icon solid fa-users" aria-hidden="true"></span> X</h3>
+											<p>гостей</p>
+										</div>
+										<div class="tz-card grid-4">
+											<h3><span class="icon solid fa-guitar" aria-hidden="true"></span> X</h3>
+											<p>артистов и джем-составов</p>
+										</div>
+										<div class="tz-card grid-4">
+											<h3><span class="icon solid fa-clock" aria-hidden="true"></span> X / X</h3>
+											<p>часов музыки / активностей</p>
+										</div>
+									</div>
+
+									<div class="tz-cta-row" style="justify-content: flex-start; margin-top: 1.5rem;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
 								</div>
 								<div class="block-image">
-									<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+									<span class="image fit"><img src="images/pic01.jpg" alt="TeremJam" /></span>
+									<!-- TODO: когда будет видео — вставим сюда -->
 								</div>
 							</div>
 						</section>
 
-						<!-- Блок 2 -->
-						<section class="content-block" data-block="2" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInRight">
+						<!-- 3) Отдельная страница (тизер) -->
+						<section id="program" class="content-block" data-block="program-teaser" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
 							<div class="block-content">
 								<div class="block-text">
-									<h2>Сцены</h2>
+									<h2>Днём — концерты. Ночью — джемы.</h2>
 									<p>
-										Их две, ночные джемы и артисты, 
-										<br>которые не просто выступают, а делятся частичкой себя. 
-									
-										<br>Лайнап 2026 формируется прямо сейчас — следите за анонсами, будет много открытий!
+										Днём — концерты и программа. Ночью — джемы: музыканты смешиваются, играют неожиданные составы, и ты слышишь то,
+										чего не будет “в записи”.
 									</p>
+									<div class="tz-card-grid" style="margin-top: 1.25rem;">
+										<div class="tz-card grid-4">
+											<h3>Концерты</h3>
+											<p>Лайнап + сильные сеты</p>
+										</div>
+										<div class="tz-card grid-4">
+											<h3>JAM-ночь</h3>
+											<p>Импровизация, коллаборации, “ещё одну и спать”</p>
+										</div>
+										<div class="tz-card grid-4">
+											<h3>Терем и лес</h3>
+											<p>Место само делает половину магии</p>
+										</div>
+									</div>
+									<div class="tz-cta-row" style="justify-content: flex-start; margin-top: 1.5rem;">
+										<a href="program.html" class="button primary">Смотреть программу</a>
+										<a href="#tickets" class="button scrolly">Купить билет</a>
+									</div>
 								</div>
 								<div class="block-image">
-									<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
+									<span class="image fit"><img src="images/pic03.jpg" alt="Программа" /></span>
 								</div>
 							</div>
 						</section>
 
-						<!-- Блок 3 -->
-						<section class="content-block" data-block="3" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
+						<!-- 4) Лайнап -->
+						<section id="lineup" class="content-block" data-block="lineup" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInLeft">
 							<div class="block-content">
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-								</div>
 								<div class="block-text">
-									<h2>Три дня полного погружения</h2>
-									
-								<br>Пятница, 29 мая — заезд с 12:00, первые знакомства, открытие сцен, вечерние концерты и тёплый костёр под звёздами. 
-								<br>Суббота, 30 мая — самый насыщенный день: мастер-классы от музыкантов, перформансы, поэзия, видео- и фотовыставки, детская программа, а вечером — главные концерты и яркое фаер-шоу. 
-								<br>Воскресенье, 31 мая — спокойное утро (йога, прогулки по лесу), дневные выступления, финальные аккорды и прощание до заката.
-										
-								<br><br>А ещё: театр, инсталляции, ярмарка handmade, общие посиделки и много-много человеческого тепла. Для детей — отдельная программа с играми и приключениями, чтобы всей семьёй чувствовать себя как в сказке.
-										</p>
+									<h2>Лайнап</h2>
+									<p>Лайнап фестиваля еще собирается. Следите за новостями, чтобы не пропустить важные анонсы.</p>
+									<ul class="icons" style="margin-top: 0.75rem;">
+										<li><a href="https://vk.com/teremjam" class="icon brands fa-vk" target="_blank" rel="noopener"><span class="label">VK</span></a></li>
+										<li><a href="https://t.me/teremjam" class="icon brands fa-telegram" target="_blank" rel="noopener"><span class="label">Telegram</span></a></li>
+									</ul>
+
+									<h3 style="margin-top: 1.5rem;">У нас уже выступали</h3>
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
+										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
+										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
+										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic02.jpg" alt="Лайнап" /></span>
 								</div>
 							</div>
 						</section>
 
-						<!-- Блок 4 -->
-						<section class="content-block" data-block="4" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
+						<!-- 5) Как это было -->
+						<section id="past" class="content-block" data-block="past" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
+							<div class="block-content">
+								<div class="block-image">
+									<div class="tz-photo-wall" aria-label="Фото со прошлого фестиваля">
+										<span class="w-6"><img src="images/pic04.jpg" alt="" /></span>
+										<span class="w-6"><img src="images/pic05.jpg" alt="" /></span>
+										<span class="w-4"><img src="images/pic06.jpg" alt="" /></span>
+										<span class="w-4"><img src="images/pic07.jpg" alt="" /></span>
+										<span class="w-4"><img src="images/pic08.jpg" alt="" /></span>
+										<span class="w-3"><img src="images/pic09.jpg" alt="" /></span>
+										<span class="w-3"><img src="images/pic01.jpg" alt="" /></span>
+										<span class="w-3"><img src="images/pic02.jpg" alt="" /></span>
+										<span class="w-3"><img src="images/pic03.jpg" alt="" /></span>
+									</div>
+								</div>
+								<div class="block-text">
+									<h2>Как это было в прошлый раз</h2>
+									<p>Стену фотографий обновим ссылкой на альбом, как только он будет готов.</p>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- 6) Программа фестиваля (карточки) -->
+						<section id="festival-program" class="content-block" data-block="festival-program" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
 								<div class="block-text">
-									<h2>Где это происходит(do do: yandex maps)</h2>
+									<h2>Программа фестиваля</h2>
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-6">
+											<h3>Концертная программа</h3>
+											<p>Музыка, которая звучит живьём и по‑настоящему: от аутентичного фольклора и народных традиций до фолк‑рока, эмбиента, нео‑классики и этно‑электроники.</p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Джемы</h3>
+											<p>Когда заканчиваются выступления — начинается то, ради чего многие приезжают: джемы и импровизации, где музыка рождается прямо здесь, в лесу.</p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Ремесла</h3>
+											<p>Здесь можно не просто посмотреть, а сделать самому: кузница, глина, резьба по дереву, лепёшки, ткачество. <em>(уточним список)</em></p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Костры, музыка и беседы</h3>
+											<p>Собираемся у костра, продолжаем играть, петь, пить горячий чай (или напитки из легендарного “Бухета”), общаться и смотреть на звёзды.</p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Мастер‑классы</h3>
+											<p>Вокал, музыка, танцы, йога, игра на инструментах, импровизация и многое другое — бесплатно и по любви.</p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Детская зона</h3>
+											<p>Отдельная программа с играми и приключениями, чтобы всей семьёй чувствовать себя как в сказке.</p>
+										</div>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic07.jpg" alt="Программа" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- 7) Кому зайдёт -->
+						<section id="who" class="content-block" data-block="who" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Кому это зайдёт на 100%</h2>
+									<ul>
+										<li>если хочешь отдохнуть от города, посмотреть на звездное небо и посетить настоящий терем</li>
+										<li>если любишь живую музыку, а не “плейлист на фоне”</li>
+										<li>если хочется людей “на одной волне” без понтов</li>
+										<li>если хочешь культурно, но не занудно</li>
+									</ul>
+									<h3 style="margin-top: 1.25rem;">Не зайдёт, если…</h3>
+									<ul>
+										<li>ждёшь тусовку “как в клубе”</li>
+										<li>бесишься от природы, тишины и расстояний</li>
+										<li>хочешь сервис “пять звёзд, тапочки, шампанское”</li>
+									</ul>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Окей, я из первых — купить билет</a>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic06.jpg" alt="" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- 8) Расписание -->
+						<section id="timetable" class="content-block" data-block="timetable" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
+							<div class="block-content">
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic05.jpg" alt="" /></span>
+								</div>
+								<div class="block-text">
+									<h2>Расписание по дням</h2>
+									<div class="tz-schedule" style="margin-top: 1rem;">
+										<div class="tz-day">
+											<h3>Пт, 29 мая</h3>
+											<ul>
+												<li>заезд / заселение / знакомство</li>
+												<li>открытие</li>
+												<li>вечерний сет</li>
+												<li>ночной джем</li>
+											</ul>
+										</div>
+										<div class="tz-day">
+											<h3>Сб, 30 мая</h3>
+											<ul>
+												<li>утро: практика / мастер‑классы</li>
+												<li>день: сцена 1 / сцена 2</li>
+												<li>вечер: главный концерт</li>
+												<li>ночь: big jam</li>
+											</ul>
+										</div>
+										<div class="tz-day">
+											<h3>Вс, 31 мая</h3>
+											<ul>
+												<li>поздний завтрак / финальные выступления</li>
+												<li>закрытие / отъезд</li>
+											</ul>
+										</div>
+									</div>
+									<p style="margin-top: 1rem; opacity: 0.9;">Сноска: программа может двигаться, но “каркас” понятен.</p>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- 9) Стань частью -->
+						<section id="join" class="content-block" data-block="join" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Стань частью TeremJam 2026</h2>
+									<p>
+										TeremJam — это не “ещё один фестиваль”. Это три дня в тайге, где живая музыка, джемы, костёр и люди собираются в одно большое тёплое “своё”.
+										Хочешь быть не “гостем”, а частью команды и легенды? Оставляй заявку — и мы свяжемся с тобой!
+									</p>
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-4">
+											<h3>Партнёрам и спонсорам</h3>
+											<p>Сделаем нативно и красиво — без ощущения “маркетинга в лесу”.</p>
+											<div class="tz-card-actions">
+												<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+											</div>
+										</div>
+										<div class="tz-card grid-4">
+											<h3>Участникам ярмарки</h3>
+											<p>Handmade, локальные бренды, экологичные продукты — это атмосфера фестиваля.</p>
+											<div class="tz-card-actions">
+												<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+											</div>
+										</div>
+										<div class="tz-card grid-4">
+											<h3>Волонтёрская программа</h3>
+											<p>Увидеть, как рождается фестиваль изнутри. Особые условия и благодарность.</p>
+											<div class="tz-card-actions">
+												<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic09.jpg" alt="" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- 10) Комфорт и быт -->
+						<section id="comfort" class="content-block" data-block="comfort" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Комфорт и быт</h2>
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-3"><p><strong>горячий душ</strong> / санблок</p></div>
+										<div class="tz-card grid-3"><p><strong>питьевая вода</strong></p></div>
+										<div class="tz-card grid-3"><p><strong>еда на месте</strong> / точки питания</p></div>
+										<div class="tz-card grid-3"><p><strong>медпомощь</strong> / безопасность</p></div>
+										<div class="tz-card grid-3"><p><strong>тишина‑регламент</strong> ночью</p></div>
+										<div class="tz-card grid-3"><p><strong>зарядки</strong> / розетки / генераторы</p></div>
+										<div class="tz-card grid-3"><p><strong>место в палаточном лагере</strong></p></div>
+										<div class="tz-card grid-3"><p><strong>экскурсия по Терему</strong> (групповая)</p></div>
+									</div>
+									<h3 style="margin-top: 1.5rem;">Что взять с собой</h3>
+									<p>Куртка на вечер, фонарик, павербанк, плед…</p>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic08.jpg" alt="" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- 11) Проживание и питание -->
+						<section id="stay" class="content-block" data-block="stay" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInLeft">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Проживание и питание</h2>
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-4">
+											<h3>Кемпинг</h3>
+											<p>Место под палатку</p>
+										</div>
+										<div class="tz-card grid-4">
+											<h3>Аренда снаряги</h3>
+											<p>Пакет “приехал налегке”</p>
+										</div>
+										<div class="tz-card grid-4">
+											<h3>Номера / домики</h3>
+											<p>Если предусмотрено — добавим ссылку на бронь</p>
+										</div>
+									</div>
+									<h3 style="margin-top: 1.5rem;">Питание</h3>
+									<ul>
+										<li>купить в городе / кафе / полевая кухня <em>(уточним)</em></li>
+										<li>можно готовить на горелке <em>(если разрешено)</em></li>
+									</ul>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
+								</div>
+								<div class="block-image">
+									<div class="tz-carousel" aria-label="Фото проживания">
+										<div class="tz-slide"><img src="images/pic04.jpg" alt="" /></div>
+										<div class="tz-slide"><img src="images/pic05.jpg" alt="" /></div>
+										<div class="tz-slide"><img src="images/pic06.jpg" alt="" /></div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- 12) Место -->
+						<section id="place" class="content-block" data-block="place" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Место</h2>
 									<p>Терем Асташово — отреставрированный деревянный шедевр в Чухломском районе Костромской области. Арт-отель, музей и культурный центр в окружении густой тайги. Спите в палатке под шелест деревьев или в уютном номере терема — как душе угодно.</p>
 								</div>
 								<div class="block-image">
-									<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+									<div class="tz-carousel" aria-label="Фото Терема">
+										<div class="tz-slide"><img src="images/pic01.jpg" alt="" /></div>
+										<div class="tz-slide"><img src="images/pic02.jpg" alt="" /></div>
+										<div class="tz-slide"><img src="images/pic03.jpg" alt="" /></div>
+										<div class="tz-slide"><img src="images/pic04.jpg" alt="" /></div>
+									</div>
 								</div>
 							</div>
 						</section>
 
-						<!-- Блок 9 (Покупка билета) - перемещен перед блоком 5 -->
-						<section class="content-block" data-block="9" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+						<!-- 13) Как добраться -->
+						<section id="travel" class="content-block" data-block="travel" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
 							<div class="block-content">
 								<div class="block-text">
-									<h2>Обычный билет даёт всё:</h2>
-									<p>
-										<br>•	Все концерты и перформансы на двух сценах
-										<br>•	Мастер-классы и тренинги
-										<br>•	Место в палаточном лагере (душ с горячей водой, туалеты, питьевая вода и кипяток)
-										<br>•	Групповая экскурсия по Терему
-										</p>
-									<h2><br><br><br>Специальные тарифы:</h2>
-									<p><br>•	Семейный — скидки для детей
-										<br>•	Однодневный — без ночёвки
-										<br>•	Групповой (от 3 человек) — вместе веселее и дешевле!
-										</p>
+									<h2>Как добраться</h2>
+									<ul>
+										<li>На машине — … км от Москвы и … км от Костромы</li>
+										<li>Общественным транспортом — до Чухломы или Галича</li>
+										<li>Организованный трансфер из Москвы или от Галича — бронируется заранее</li>
+									</ul>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
+								</div>
+								<div class="block-image">
+									<div class="tz-map">
+										<iframe src="https://yandex.ru/map-widget/v1/?text=%D0%A2%D0%B5%D1%80%D0%B5%D0%BC%20%D0%90%D1%81%D1%82%D0%B0%D1%88%D0%BE%D0%B2%D0%BE&z=9" allowfullscreen="true" title="Яндекс карты: Терем Асташово"></iframe>
+									</div>
+									<p style="margin-top: 0.75rem; opacity: 0.9;">
+										<a href="https://yandex.ru/maps/?text=%D0%A2%D0%B5%D1%80%D0%B5%D0%BC%20%D0%90%D1%81%D1%82%D0%B0%D1%88%D0%BE%D0%B2%D0%BE" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+									</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- 14) Билеты и цены -->
+						<section id="tickets" class="content-block" data-block="tickets" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
+							<div class="block-content">
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic07.jpg" alt="" /></span>
+								</div>
+								<div class="block-text">
+									<h2>Билеты и цены</h2>
+									<p>Цены растут по этапам — чем раньше, тем дешевле. Без сюрпризов.</p>
+
+									<div class="tz-card-grid" style="margin-top: 1rem;">
+										<div class="tz-card grid-6">
+											<h3>Стандарт (3 дня) — 5000 ₽</h3>
+											<p>Все концерты и перформансы на двух сценах, мастер‑классы и тренинги, место в палаточном лагере, групповая экскурсия по Терему.</p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Семейный — 4000 ₽</h3>
+											<p>Льготы для детей + детская программа. <em>(условия дополним)</em></p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Один день — 2000 ₽</h3>
+											<p>Билет на один день без ночёвки. <em>(условия дополним)</em></p>
+										</div>
+										<div class="tz-card grid-6">
+											<h3>Групповой — 4500 ₽</h3>
+											<p>От 3 человек — вместе веселее и дешевле! <em>(условия дополним)</em></p>
+										</div>
+									</div>
+
+									<p style="margin-top: 1.25rem;">
+										Цены растут поэтапно. Самая выгодная цена до 24 февраля 2026. С 30 апреля цена будет выше.
+									</p>
+									<p style="margin-top: 0.75rem; opacity: 0.95;">
+										Микротекст: В стоимость билета не входит: питание (готовим сами или покупаем на месте), лагерное снаряжение (аренда по предзаявке), трансфер, проживание в номерах Терема (бронируется отдельно — билет уже включён), баня и экскурсия в Погорелово.
+									</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Форма покупки -->
+						<section id="buy" class="content-block" data-block="buy" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Купить билет</h2>
+									<p>Выберите тариф, количество и дополнительные услуги — и переходите к оплате.</p>
 								</div>
 								<div class="block-image">
 									<div class="ticket-wizard-form">
@@ -232,7 +610,7 @@
 												</div>
 												<div class="field">
 													<input type="checkbox" name="agree" id="agree" required>
-													<label for="agree">Согласен с <a href="#" class="rules-link" target="_blank">правилами</a></label>
+													<label for="agree">Согласен с <a href="#rules" class="rules-link scrolly">правилами</a></label>
 													<span class="error-message"></span>
 												</div>
 												<div class="wizard-buttons">
@@ -320,7 +698,7 @@
 												</div>
 											</div>
 
-											<!-- Step 4: Payment -->
+											<!-- Step 4: Payment (не используется — редирект на payment.html) -->
 											<div class="wizard-step" data-step="4">
 												<div class="payment-summary">
 													<h3>Итоговая информация</h3>
@@ -356,68 +734,134 @@
 							</div>
 						</section>
 
-						<!-- Блок 7 -->
-						<section class="content-block" data-block="7" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
+						<!-- 15) Гарантии и правила -->
+						<section id="rules" class="content-block" data-block="rules" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
 							<div class="block-content">
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic07.jpg" alt="" /></span>
-								</div>
 								<div class="block-text">
-									<h2>Цены</h2>
-									<p>Цены растут поэтапно: выгоднее всего купить до 24 февраля 2026, потом до 30 апреля и до 26 мая. 
-									
-										<br>Не входит в билет: питание (готовим сами или покупаем на месте), лагерное снаряжение (аренда по предзаявке), трансфер, проживание в номерах Терема (бронируется отдельно — билет уже включён), баня и экскурсия в Погорелово.
-										</p>
+									<h2>Гарантии и правила</h2>
+									<h3>Если планы поменяются</h3>
+									<ul>
+										<li>условия возврата / переноса — <em>прописать подробнее</em></li>
+										<li>что при форс‑мажоре / погоде — <em>прописать подробнее</em></li>
+									</ul>
+									<p style="opacity: 0.95;">Документы (оферта, правила) — добавим ссылками в футер, когда будут готовы.</p>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
 								</div>
 							</div>
 						</section>
 
-						<!-- Блок 8 -->
-						<section class="content-block" data-block="8" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+						<!-- 16) Отзывы -->
+						<section id="reviews" class="content-block" data-block="reviews" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
 							<div class="block-content">
-								<div class="block-text">
-									<h2>Как добраться</h2>
-									<p><br>•	На машине — координаты и маршрут пришлём после покупки
-										<br>•	Общественным транспортом — до Чухломы или Галича
-										<br>•	Организованный трансфер из Москвы или от Галича — бронируется заранее
-										</p>
-								</div>
 								<div class="block-image">
-									<span class="image fit"><img src="images/pic08.jpg" alt="" /></span>
+									<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
+								</div>
+								<div class="block-text">
+									<h2>Отзывы</h2>
+									<div class="tz-reviews" style="margin-top: 1rem;">
+										<div class="tz-review">
+											<blockquote>“Это место как будто выключает город внутри. Музыка — живая, люди — настоящие.”</blockquote>
+											<div class="tz-review-author">— Гость TeremJam</div>
+										</div>
+										<div class="tz-review">
+											<blockquote>“Джемы ночью — отдельная вселенная. Приехал на концерт, остался за ощущением.”</blockquote>
+											<div class="tz-review-author">— Гость TeremJam</div>
+										</div>
+										<div class="tz-review">
+											<blockquote>“Терем, лес и костёр — это когда праздник не только на сцене, но и вокруг.”</blockquote>
+											<div class="tz-review-author">— Гость TeremJam</div>
+										</div>
+									</div>
+									<p style="margin-top: 1rem; opacity: 0.9;">Все отзывы: <em>добавим ссылкой на подборку</em></p>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+									</div>
 								</div>
 							</div>
 						</section>
 
-						<!-- Блок 10 -->
-						<section class="content-block" data-block="10" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
+						<!-- 17) FAQ -->
+						<section id="faq" class="content-block" data-block="faq" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
-									<h2>Хотите быть ближе к волшебству?</h2>
-									<p>
-										<br>•	Выступить, провести мастер-класс или ярмарку — пишите в Telegram
-<br>•	Стать волонтёром — особые условия и благодарность 
-<br>Все вопросы, бронирование допов, аренда снаряжения — в Telegram @TeremJam_support. Там же самые быстрые ответы и тёплая поддержка.
-
-									</p>
-								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic09.jpg" alt="" /></span>
-								</div>
-							</div>
-						</section>
-
-						<!-- Блок 11 -->
-						<section class="content-block" data-block="11" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
-							<div class="block-content">
-								<div class="block-text">
-									<h2>ТеремJam</h2>
-									<p>Это про настоящее. Про музыку, которая исцеляет. Про лес, который обнимает. Про людей, которые становятся друзьями за один вечер.
-										Ждём вас в мае 2026. Будет душевно, тепло и незабываемо. До встречи под звёздным небом Терема ❤️
-										vk.com/teremjam • astashovo.com • @TeremJam_support
-										</p>
+								<div class="block-text tz-faq">
+									<h2>FAQ</h2>
+									<details>
+										<summary>Можно ли с детьми?</summary>
+										<p>Да, для детей предусмотрена отдельная программа. Возрастные детали уточним и добавим.</p>
+									</details>
+									<details>
+										<summary>Что с проживанием?</summary>
+										<p>Есть палаточный лагерь. По домикам/номерам добавим информацию и ссылку на бронь, если будет доступно.</p>
+									</details>
+									<details>
+										<summary>Как добраться?</summary>
+										<p>На машине / общественным транспортом до Чухломы или Галича / организованный трансфер — см. блок “Как добраться”.</p>
+									</details>
+									<details>
+										<summary>Можно ли вернуть билет?</summary>
+										<p>Добавим условия возврата/переноса в разделе “Гарантии и правила”.</p>
+									</details>
 								</div>
 								<div class="block-image">
 									<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- 18) Финальный блок-удар -->
+						<section id="final" class="content-block" data-block="final" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Финальный аккорд</h2>
+									<p>
+										Это про настоящее. Про музыку, которая исцеляет. Про лес, который обнимает.
+										Про людей, которые становятся друзьями за один вечер.
+										Ждём вас в мае 2026. Будет душевно, тепло и незабываемо. До встречи под звёздным небом Терема!
+									</p>
+									<div class="tz-cta-row" style="justify-content: flex-start;">
+										<a href="#tickets" class="button primary scrolly">Купить билет</a>
+										<a href="https://t.me/TeremJam_support" class="button" target="_blank" rel="noopener">В лист ожидания / чек‑лист</a>
+									</div>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- 19) Остались вопросы? -->
+						<section id="contact" class="content-block" data-block="contact" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+							<div class="block-content">
+								<div class="block-text">
+									<h2>Остались вопросы?</h2>
+									<p>Заполните заявку по форме и мы свяжемся с вами в ближайшее время!</p>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field">
+												<label for="contact-name">Имя</label>
+												<input type="text" name="name" id="contact-name" />
+											</div>
+											<div class="field">
+												<label for="contact-email">Email</label>
+												<input type="email" name="email" id="contact-email" />
+											</div>
+											<div class="field">
+												<label for="contact-message">Сообщение</label>
+												<textarea name="message" id="contact-message" rows="3"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Отправить" /></li>
+										</ul>
+									</form>
+								</div>
+								<div class="block-image">
+									<span class="image fit"><img src="images/pic08.jpg" alt="" /></span>
 								</div>
 							</div>
 						</section>
@@ -426,48 +870,24 @@
 
 				<!-- Footer / Нижняя форма контактов -->
 					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Имя</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Ваше сообщение</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
 						<section class="split contact">
 							<section class="alt">
-								<h3>Address</h3>
-								<p>Адрес<br />
-								</p>
+								<h3>Организатор</h3>
+								<p>TeremJam<br />Реквизиты и документы (оферта) — <em>добавим ссылками</em></p>
 							</section>
 							<section>
-								<h3>Ваш номер телефона</h3>
-								<p><a href="#">(000) 000-0000</a></p>
+								<h3>Telegram</h3>
+								<p><a href="https://t.me/TeremJam_support" target="_blank" rel="noopener">@TeremJam_support</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
+								<p><a href="mailto:info@teremjam.ru">info@teremjam.ru</a></p>
 							</section>
 							<section>
-								<h3>Social</h3>
+								<h3>Соцсети</h3>
 								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://vk.com/teremjam" class="icon brands alt fa-vk" target="_blank" rel="noopener"><span class="label">VK</span></a></li>
+									<li><a href="https://t.me/teremjam" class="icon brands alt fa-telegram" target="_blank" rel="noopener"><span class="label">Telegram</span></a></li>
 								</ul>
 							</section>
 						</section>
