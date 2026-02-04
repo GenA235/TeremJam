@@ -393,3 +393,205 @@
 .tz-microtext {
 	font-size: 0.5em;
 }
+
+/* -----------------------------
+   CTA Button "Купить билет"
+------------------------------ */
+
+/* Единый стиль для всех кнопок "Купить билет" и других CTA, ведущих на страницу покупки */
+/* Используем высокую специфичность для переопределения существующих стилей .button.primary */
+a.button.cta-buy-ticket,
+a.button[href="#tickets"],
+a.button[href="#buy"],
+a.button.primary[href="#tickets"],
+a.button.primary[href="#buy"],
+.content-block a.button[href="#tickets"],
+.content-block a.button[href="#buy"],
+#intro a.button[href="#tickets"],
+#nav a.button[href="#tickets"] {
+	background-color: var(--cta-buy-ticket-bg, #ff6b35) !important;
+	color: var(--cta-buy-ticket-text, #ffffff) !important;
+	border-color: var(--cta-buy-ticket-border, #ff6b35) !important;
+	box-shadow: none !important;
+}
+
+a.button.cta-buy-ticket:hover,
+a.button[href="#tickets"]:hover,
+a.button[href="#buy"]:hover,
+a.button.primary[href="#tickets"]:hover,
+a.button.primary[href="#buy"]:hover,
+.content-block a.button[href="#tickets"]:hover,
+.content-block a.button[href="#buy"]:hover,
+#intro a.button[href="#tickets"]:hover,
+#nav a.button[href="#tickets"]:hover {
+	background-color: var(--cta-buy-ticket-hover-bg, #ff8555) !important;
+	color: var(--cta-buy-ticket-hover-text, #ffffff) !important;
+	border-color: var(--cta-buy-ticket-hover-border, #ff8555) !important;
+}
+
+a.button.cta-buy-ticket:active,
+a.button[href="#tickets"]:active,
+a.button[href="#buy"]:active,
+a.button.primary[href="#tickets"]:active,
+a.button.primary[href="#buy"]:active,
+.content-block a.button[href="#tickets"]:active,
+.content-block a.button[href="#buy"]:active,
+#intro a.button[href="#tickets"]:active,
+#nav a.button[href="#tickets"]:active {
+	background-color: var(--cta-buy-ticket-active-bg, #e55a2a) !important;
+	color: var(--cta-buy-ticket-active-text, #ffffff) !important;
+	border-color: var(--cta-buy-ticket-active-border, #e55a2a) !important;
+}
+
+a.button.cta-buy-ticket:disabled,
+a.button[href="#tickets"]:disabled,
+a.button[href="#buy"]:disabled,
+a.button.primary[href="#tickets"]:disabled,
+a.button.primary[href="#buy"]:disabled,
+.content-block a.button[href="#tickets"]:disabled,
+.content-block a.button[href="#buy"]:disabled,
+#intro a.button[href="#tickets"]:disabled,
+#nav a.button[href="#tickets"]:disabled {
+	background-color: var(--cta-buy-ticket-disabled-bg, rgba(255, 107, 53, 0.5)) !important;
+	color: var(--cta-buy-ticket-disabled-text, rgba(255, 255, 255, 0.6)) !important;
+	opacity: var(--cta-buy-ticket-disabled-opacity, 0.6) !important;
+	cursor: not-allowed;
+}
+
+/* -----------------------------
+   Program Carousel (мобильная карусель)
+------------------------------ */
+
+.tz-program-carousel-wrapper {
+	position: relative;
+	margin-top: 1.25rem;
+}
+
+/* Десктоп: карточки в ряд */
+.tz-program-carousel {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+}
+
+.tz-program-card {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(248, 255, 196, 0.05);
+	border: 2px solid rgba(248, 255, 196, 0.15);
+	border-radius: 8px;
+	overflow: hidden;
+	transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tz-program-card:hover {
+	border-color: rgba(248, 255, 196, 0.4);
+	transform: translateY(-2px);
+}
+
+.tz-program-card-image {
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+
+.tz-program-card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.tz-program-card:hover .tz-program-card-image img {
+	transform: scale(1.05);
+}
+
+.tz-program-card-content {
+	padding: 1.25rem;
+	flex: 1;
+}
+
+.tz-program-card-content h3 {
+	margin: 0 0 0.5rem 0;
+	color: var(--content-block-text-color, #f8ffc4);
+	font-size: 1.25rem;
+}
+
+.tz-program-card-content p {
+	margin: 0;
+	color: var(--content-block-text-color, #f8ffc4);
+	opacity: 0.9;
+	font-size: 0.95rem;
+}
+
+.tz-program-card-content ul {
+	margin: 0.75rem 0 0 0;
+	padding-left: 1.25rem;
+	list-style-type: disc;
+}
+
+.tz-program-card-content ul li {
+	margin: 0.5rem 0;
+	color: var(--content-block-text-color, #f8ffc4);
+	opacity: 0.9;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+/* Индикаторы карусели (скрыты на десктопе) */
+.tz-program-carousel-dots {
+	display: none;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.tz-program-carousel-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgba(248, 255, 196, 0.4);
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	padding: 0;
+}
+
+.tz-program-carousel-dot.active {
+	background-color: var(--content-block-text-color, #f8ffc4);
+	transform: scale(1.2);
+}
+
+/* Мобильная версия: карусель */
+@media screen and (max-width: 736px) {
+	.tz-program-carousel {
+		display: flex;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		gap: 1rem;
+		padding-bottom: 0.5rem;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE and Edge */
+	}
+
+	.tz-program-carousel::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
+
+	.tz-program-card {
+		flex: 0 0 85%;
+		scroll-snap-align: center;
+		min-width: 0;
+	}
+
+	.tz-program-card-image {
+		height: 180px;
+	}
+
+	.tz-program-carousel-dots {
+		display: flex;
+	}
+}

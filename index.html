@@ -91,9 +91,9 @@
 				<!-- Main -->
 					<div id="main">
 						<!-- 2) О фестивале -->
-						<section id="about" class="content-block" data-block="about" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInLeft">
+						<section id="about" class="content-block" data-block="about" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>О фестивале</h2>
 									<p>
 										ТеремJam — это три дня настоящего волшебства, где музыка, природа и люди сливаются в одно теплое целое.
@@ -101,71 +101,99 @@
 										Если вы ищете место, где можно выдохнуть, послушать душу и почувствовать себя живым — добро пожаловать домой.
 									</p>
 
-									<h3 style="margin-top: 1.5rem;">Цифры</h3>
-									<div class="tz-card-grid" style="margin-top: 1rem;">
-										<div class="tz-card grid-4">
-											<h3><span class="icon solid fa-users" aria-hidden="true"></span> X</h3>
-											<p>гостей</p>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="aboutCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic04.jpg" alt="Гости фестиваля" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3><span class="icon solid fa-users" aria-hidden="true"></span> X</h3>
+													<p>гостей</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic05.jpg" alt="Артисты" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3><span class="icon solid fa-guitar" aria-hidden="true"></span> X</h3>
+													<p>артистов и джем-составов</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic06.jpg" alt="Музыка и активности" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3><span class="icon solid fa-clock" aria-hidden="true"></span> X / X</h3>
+													<p>часов музыки / активностей</p>
+												</div>
+											</div>
 										</div>
-										<div class="tz-card grid-4">
-											<h3><span class="icon solid fa-guitar" aria-hidden="true"></span> X</h3>
-											<p>артистов и джем-составов</p>
-										</div>
-										<div class="tz-card grid-4">
-											<h3><span class="icon solid fa-clock" aria-hidden="true"></span> X / X</h3>
-											<p>часов музыки / активностей</p>
-										</div>
+										<div class="tz-program-carousel-dots" id="aboutCarouselDots"></div>
 									</div>
 
 									<div class="tz-cta-row" style="justify-content: flex-start; margin-top: 1.5rem;">
 										<a href="#tickets" class="button primary scrolly">Купить билет</a>
 									</div>
 								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic01.jpg" alt="ТеремJam" /></span>
-									<!-- TODO: когда будет видео — вставим сюда -->
-								</div>
 							</div>
 						</section>
 
 						<!-- 3) Отдельная страница (тизер) -->
-						<section id="program" class="content-block" data-block="program-teaser" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+						<section id="program" class="content-block" data-block="program-teaser" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>Днём — концерты. Ночью — джемы.</h2>
 									<p>
 										Днём — концерты и программа. Ночью — джемы: музыканты смешиваются, играют неожиданные составы, и ты слышишь то,
-										чего не будет “в записи”.
+										чего не будет "в записи".
 									</p>
-									<div class="tz-card-grid" style="margin-top: 1.25rem;">
-										<div class="tz-card grid-4">
-											<h3>Концерты</h3>
-											<p>Лайнап + сильные сеты</p>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="programCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic01.jpg" alt="Концерты" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Концерты</h3>
+													<p>Лайнап + сильные сеты</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic02.jpg" alt="JAM-ночь" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>JAM-ночь</h3>
+													<p>Импровизация, коллаборации, "ещё одну и спать"</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic03.jpg" alt="Терем и лес" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Терем и лес</h3>
+													<p>Место само делает половину магии</p>
+												</div>
+											</div>
 										</div>
-										<div class="tz-card grid-4">
-											<h3>JAM-ночь</h3>
-											<p>Импровизация, коллаборации, “ещё одну и спать”</p>
-										</div>
-										<div class="tz-card grid-4">
-											<h3>Терем и лес</h3>
-											<p>Место само делает половину магии</p>
-										</div>
+										<div class="tz-program-carousel-dots" id="programCarouselDots"></div>
 									</div>
 									<div class="tz-cta-row" style="justify-content: flex-start; margin-top: 1.5rem;">
 										<a href="program.html" class="button primary">Смотреть программу</a>
 										<a href="#tickets" class="button scrolly">Купить билет</a>
 									</div>
 								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic03.jpg" alt="Программа" /></span>
-								</div>
 							</div>
 						</section>
 
 						<!-- 4) Лайнап -->
-						<section id="lineup" class="content-block" data-block="lineup" data-image-position="right" data-text-animation="fadeInUp" data-image-animation="fadeInLeft">
+						<section id="lineup" class="content-block" data-block="lineup" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>Лайнап</h2>
 									<p>Лайнап фестиваля еще собирается. Следите за новостями, чтобы не пропустить важные анонсы.</p>
 									<ul class="icons" style="margin-top: 0.75rem;">
@@ -174,15 +202,47 @@
 									</ul>
 
 									<h3 style="margin-top: 1.5rem;">У нас уже выступали</h3>
-									<div class="tz-card-grid" style="margin-top: 1rem;">
-										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
-										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
-										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
-										<div class="tz-card grid-3"><p><strong>Артист</strong><br />Имя / проект</p></div>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="lineupCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic07.jpg" alt="Артист" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Артист</h3>
+													<p>Имя / проект</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic08.jpg" alt="Артист" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Артист</h3>
+													<p>Имя / проект</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic09.jpg" alt="Артист" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Артист</h3>
+													<p>Имя / проект</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic01.jpg" alt="Артист" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Артист</h3>
+													<p>Имя / проект</p>
+												</div>
+											</div>
+										</div>
+										<div class="tz-program-carousel-dots" id="lineupCarouselDots"></div>
 									</div>
-								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic02.jpg" alt="Лайнап" /></span>
 								</div>
 							</div>
 						</section>
@@ -214,39 +274,69 @@
 						</section>
 
 						<!-- 6) Программа фестиваля (карточки) -->
-						<section id="festival-program" class="content-block" data-block="festival-program" data-image-position="bottom" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
+						<section id="festival-program" class="content-block" data-block="festival-program" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>Программа фестиваля</h2>
-									<div class="tz-card-grid" style="margin-top: 1rem;">
-										<div class="tz-card grid-6">
-											<h3>Концертная программа</h3>
-											<p>Музыка, которая звучит живьём и по‑настоящему: от аутентичного фольклора и народных традиций до фолк‑рока, эмбиента, нео‑классики и этно‑электроники.</p>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="festivalProgramCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic01.jpg" alt="Концертная программа" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Концертная программа</h3>
+													<p>Музыка, которая звучит живьём и по‑настоящему: от аутентичного фольклора и народных традиций до фолк‑рока, эмбиента, нео‑классики и этно‑электроники.</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic02.jpg" alt="Джемы" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Джемы</h3>
+													<p>Когда заканчиваются выступления — начинается то, ради чего многие приезжают: джемы и импровизации, где музыка рождается прямо здесь, в лесу.</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic03.jpg" alt="Ремесла" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Ремесла</h3>
+													<p>Здесь можно не просто посмотреть, а сделать самому: кузница, глина, резьба по дереву, лепёшки, ткачество. <em>(уточним список)</em></p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic04.jpg" alt="Костры, музыка и беседы" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Костры, музыка и беседы</h3>
+													<p>Собираемся у костра, продолжаем играть, петь, пить горячий чай (или напитки из легендарного "Бухета"), общаться и смотреть на звёзды.</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic05.jpg" alt="Мастер‑классы" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Мастер‑классы</h3>
+													<p>Вокал, музыка, танцы, йога, игра на инструментах, импровизация и многое другое — бесплатно и по любви.</p>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic06.jpg" alt="Детская зона" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Детская зона</h3>
+													<p>Отдельная программа с играми и приключениями, чтобы всей семьёй чувствовать себя как в сказке.</p>
+												</div>
+											</div>
 										</div>
-										<div class="tz-card grid-6">
-											<h3>Джемы</h3>
-											<p>Когда заканчиваются выступления — начинается то, ради чего многие приезжают: джемы и импровизации, где музыка рождается прямо здесь, в лесу.</p>
-										</div>
-										<div class="tz-card grid-6">
-											<h3>Ремесла</h3>
-											<p>Здесь можно не просто посмотреть, а сделать самому: кузница, глина, резьба по дереву, лепёшки, ткачество. <em>(уточним список)</em></p>
-										</div>
-										<div class="tz-card grid-6">
-											<h3>Костры, музыка и беседы</h3>
-											<p>Собираемся у костра, продолжаем играть, петь, пить горячий чай (или напитки из легендарного “Бухета”), общаться и смотреть на звёзды.</p>
-										</div>
-										<div class="tz-card grid-6">
-											<h3>Мастер‑классы</h3>
-											<p>Вокал, музыка, танцы, йога, игра на инструментах, импровизация и многое другое — бесплатно и по любви.</p>
-										</div>
-										<div class="tz-card grid-6">
-											<h3>Детская зона</h3>
-											<p>Отдельная программа с играми и приключениями, чтобы всей семьёй чувствовать себя как в сказке.</p>
-										</div>
+										<div class="tz-program-carousel-dots" id="festivalProgramCarouselDots"></div>
 									</div>
-								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic07.jpg" alt="Программа" /></span>
 								</div>
 							</div>
 						</section>
@@ -279,41 +369,56 @@
 						</section>
 
 						<!-- 8) Расписание -->
-						<section id="timetable" class="content-block" data-block="timetable" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInDown">
+						<section id="timetable" class="content-block" data-block="timetable" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic05.jpg" alt="" /></span>
-								</div>
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>Расписание по дням</h2>
-									<div class="tz-schedule" style="margin-top: 1rem;">
-										<div class="tz-day">
-											<h3>Пт, 29 мая</h3>
-											<ul>
-												<li>заезд / заселение / знакомство</li>
-												<li>открытие</li>
-												<li>вечерний сет</li>
-												<li>ночной джем</li>
-											</ul>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="timetableCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic07.jpg" alt="Пятница, 29 мая" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Пт, 29 мая</h3>
+													<ul style="margin: 0.75rem 0 0 0; padding-left: 1.25rem;">
+														<li>заезд / заселение / знакомство</li>
+														<li>открытие</li>
+														<li>вечерний сет</li>
+														<li>ночной джем</li>
+													</ul>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic08.jpg" alt="Суббота, 30 мая" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Сб, 30 мая</h3>
+													<ul style="margin: 0.75rem 0 0 0; padding-left: 1.25rem;">
+														<li>утро: практика / мастер‑классы</li>
+														<li>день: сцена 1 / сцена 2</li>
+														<li>вечер: главный концерт</li>
+														<li>ночь: big jam</li>
+													</ul>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic09.jpg" alt="Воскресенье, 31 мая" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Вс, 31 мая</h3>
+													<ul style="margin: 0.75rem 0 0 0; padding-left: 1.25rem;">
+														<li>поздний завтрак / финальные выступления</li>
+														<li>закрытие / отъезд</li>
+													</ul>
+												</div>
+											</div>
 										</div>
-										<div class="tz-day">
-											<h3>Сб, 30 мая</h3>
-											<ul>
-												<li>утро: практика / мастер‑классы</li>
-												<li>день: сцена 1 / сцена 2</li>
-												<li>вечер: главный концерт</li>
-												<li>ночь: big jam</li>
-											</ul>
-										</div>
-										<div class="tz-day">
-											<h3>Вс, 31 мая</h3>
-											<ul>
-												<li>поздний завтрак / финальные выступления</li>
-												<li>закрытие / отъезд</li>
-											</ul>
-										</div>
+										<div class="tz-program-carousel-dots" id="timetableCarouselDots"></div>
 									</div>
-									<p style="margin-top: 1rem; opacity: 0.9;">Сноска: программа может двигаться, но “каркас” понятен.</p>
+									<p style="margin-top: 1rem; opacity: 0.9;">* программа может двигаться, но "каркас" понятен.</p>
 									<div class="tz-cta-row" style="justify-content: flex-start;">
 										<a href="#tickets" class="button primary scrolly">Купить билет</a>
 									</div>
@@ -322,67 +427,79 @@
 						</section>
 
 						<!-- 9) Стань частью -->
-						<section id="join" class="content-block" data-block="join" data-image-position="right" data-text-animation="fadeInRight" data-image-animation="fadeInLeft">
+						<section id="join" class="content-block" data-block="join" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>Стань частью ТеремJam 2026</h2>
 									<p>
-										ТеремJam — это не “ещё один фестиваль”. Это три дня в тайге, где живая музыка, джемы, костёр и люди собираются в одно большое тёплое “своё”.
-										Хочешь быть не “гостем”, а частью команды и легенды? Оставляй заявку — и мы свяжемся с тобой!
+										ТеремJam — это не "ещё один фестиваль". Это три дня в тайге, где живая музыка, джемы, костёр и люди собираются в одно большое тёплое "своё".
+										Хочешь быть не "гостем", а частью команды и легенды? Оставляй заявку — и мы свяжемся с тобой!
 									</p>
-									<div class="tz-card-grid" style="margin-top: 1rem;">
-										<div class="tz-card grid-4">
-											<h3>Партнёрам и спонсорам</h3>
-											<p>Сделаем нативно и красиво — без ощущения “маркетинга в лесу”.</p>
-											<div class="tz-card-actions">
-												<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="joinCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic02.jpg" alt="Партнёрам и спонсорам" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Партнёрам и спонсорам</h3>
+													<p>Сделаем нативно и красиво — без ощущения "маркетинга в лесу".</p>
+													<div class="tz-card-actions" style="margin-top: 1rem;">
+														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+													</div>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic03.jpg" alt="Участникам ярмарки" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Участникам ярмарки</h3>
+													<p>Handmade, локальные бренды, экологичные продукты — это атмосфера фестиваля.</p>
+													<div class="tz-card-actions" style="margin-top: 1rem;">
+														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+													</div>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic04.jpg" alt="Волонтёрская программа" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Волонтёрская программа</h3>
+													<p>Увидеть, как рождается фестиваль изнутри. Особые условия и благодарность.</p>
+													<div class="tz-card-actions" style="margin-top: 1rem;">
+														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+													</div>
+												</div>
 											</div>
 										</div>
-										<div class="tz-card grid-4">
-											<h3>Участникам ярмарки</h3>
-											<p>Handmade, локальные бренды, экологичные продукты — это атмосфера фестиваля.</p>
-											<div class="tz-card-actions">
-												<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
-											</div>
-										</div>
-										<div class="tz-card grid-4">
-											<h3>Волонтёрская программа</h3>
-											<p>Увидеть, как рождается фестиваль изнутри. Особые условия и благодарность.</p>
-											<div class="tz-card-actions">
-												<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
-											</div>
-										</div>
+										<div class="tz-program-carousel-dots" id="joinCarouselDots"></div>
 									</div>
-								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic09.jpg" alt="" /></span>
 								</div>
 							</div>
 						</section>
 
 						<!-- 10) Комфорт и быт -->
-						<section id="comfort" class="content-block" data-block="comfort" data-image-position="left" data-text-animation="fadeInLeft" data-image-animation="fadeInRight">
+						<section id="comfort" class="content-block" data-block="comfort" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
 							<div class="block-content">
-								<div class="block-text">
+								<div class="block-text" style="width: 100%;">
 									<h2>Комфорт и быт</h2>
-									<div class="tz-card-grid" style="margin-top: 1rem;">
-										<div class="tz-card grid-3"><p><strong>горячий душ</strong> / санблок</p></div>
-										<div class="tz-card grid-3"><p><strong>питьевая вода</strong></p></div>
-										<div class="tz-card grid-3"><p><strong>еда на месте</strong> / точки питания</p></div>
-										<div class="tz-card grid-3"><p><strong>медпомощь</strong> / безопасность</p></div>
-										<div class="tz-card grid-3"><p><strong>тишина‑регламент</strong> ночью</p></div>
-										<div class="tz-card grid-3"><p><strong>зарядки</strong> / розетки / генераторы</p></div>
-										<div class="tz-card grid-3"><p><strong>место в палаточном лагере</strong></p></div>
-										<div class="tz-card grid-3"><p><strong>экскурсия по Терему</strong> (групповая)</p></div>
-									</div>
+									<ul class="tz-bullets" style="margin-top: 1rem;">
+										<li><span class="icon solid fa-shower" aria-hidden="true"></span><span><strong>горячий душ</strong> / санблок</span></li>
+										<li><span class="icon solid fa-tint" aria-hidden="true"></span><span><strong>питьевая вода</strong></span></li>
+										<li><span class="icon solid fa-utensils" aria-hidden="true"></span><span><strong>еда на месте</strong> / точки питания</span></li>
+										<li><span class="icon solid fa-heartbeat" aria-hidden="true"></span><span><strong>медпомощь</strong> / безопасность</span></li>
+										<li><span class="icon solid fa-moon" aria-hidden="true"></span><span><strong>тишина‑регламент</strong> ночью</span></li>
+										<li><span class="icon solid fa-plug" aria-hidden="true"></span><span><strong>зарядки</strong> / розетки / генераторы</span></li>
+										<li><span class="icon solid fa-campground" aria-hidden="true"></span><span><strong>место в палаточном лагере</strong></span></li>
+										<li><span class="icon solid fa-building" aria-hidden="true"></span><span><strong>экскурсия по Терему</strong> (групповая)</span></li>
+									</ul>
 									<h3 style="margin-top: 1.5rem;">Что взять с собой</h3>
 									<p>Куртка на вечер, фонарик, павербанк, плед…</p>
 									<div class="tz-cta-row" style="justify-content: flex-start;">
 										<a href="#tickets" class="button primary scrolly">Купить билет</a>
 									</div>
-								</div>
-								<div class="block-image">
-									<span class="image fit"><img src="images/pic08.jpg" alt="" /></span>
 								</div>
 							</div>
 						</section>
@@ -906,6 +1023,7 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/sparks.js"></script>
 		<script src="assets/js/wizard-form.js"></script>
+		<script src="assets/js/program-carousel.js"></script>
 
 	</body>
 </html>
