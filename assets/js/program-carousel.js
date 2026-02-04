@@ -99,35 +99,116 @@
 		const data = carouselData[carouselId];
 		if (!data) return;
 
-		// Отслеживаем прокрутку для синхронизации индекса
+		let touchStartTime = 0;
+		let touchStartX = 0;
+		let touchStartY = 0;
+		let isDragging = false;
+
+		// Отслеживаем прокрутку для синхронизации индекса (только при медленном драге)
 		let scrollTimeout;
 		carousel.addEventListener('scroll', function() {
-			clearTimeout(scrollTimeout);
-			scrollTimeout = setTimeout(function() {
-				updateCurrentIndexFromScroll(carouselId, carousel, cards);
-			}, 100);
+			if (!isDragging) {
+				clearTimeout(scrollTimeout);
+				scrollTimeout = setTimeout(function() {
+					updateCurrentIndexFromScroll(carouselId, carousel, cards);
+				}, 150);
+			}
 		}, { passive: true });
 
 		// Touch события для swipe
 		carousel.addEventListener('touchstart', function(e) {
-			data.touchStartX = e.changedTouches[0].screenX;
+			touchStartTime = Date.now();
+			touchStartX = e.changedTouches[0].screenX;
+			touchStartY = e.changedTouches[0].screenY;
+			isDragging = true;
 			data.isUserInteracting = true;
 		}, { passive: true });
 
+		carousel.addEventListener('touchmove', function(e) {
+			// Обновляем позицию при движении для определения скорости
+			if (isDragging) {
+				const currentX = e.changedTouches[0].screenX;
+				const currentY = e.changedTouches[0].screenY;
+				// Проверяем, что это горизонтальный свайп, а не вертикальный
+				const deltaX = Math.abs(currentX - touchStartX);
+				const deltaY = Math.abs(currentY - touchStartY);
+				if (deltaY > deltaX) {
+					// Вертикальный свайп - не обрабатываем
+					isDragging = false;
+				}
+			}
+		}, { passive: true });
+
 		carousel.addEventListener('touchend', function(e) {
-			data.touchEndX = e.changedTouches[0].screenX;
-			handleSwipe(carouselId, carousel, cards);
+			if (!isDragging) {
+				data.isUserInteracting = false;
+				return;
+			}
+
+			const touchEndTime = Date.now();
+			const touchEndX = e.changedTouches[0].screenX;
+			const touchEndY = e.changedTouches[0].screenY;
+			const duration = touchEndTime - touchStartTime;
+			const deltaX = touchEndX - touchStartX;
+			const deltaY = Math.abs(touchEndY - touchStartY);
+			const distance = Math.abs(deltaX);
+
+			// Проверяем, что это горизонтальный свайп
+			if (deltaY > distance) {
+				isDragging = false;
+				data.isUserInteracting = false;
+				return;
+			}
+
+			// Минимальное расстояние для свайпа
+			const minSwipeDistance = 30;
+			if (distance < minSwipeDistance) {
+				// Слишком маленький свайп - используем scroll-snap
+				isDragging = false;
+				data.isUserInteracting = false;
+				setTimeout(function() {
+					updateCurrentIndexFromScroll(carouselId, carousel, cards);
+				}, 200);
+				return;
+			}
+
+			// Определяем скорость (пикселей в миллисекунду)
+			const speed = distance / duration;
+			const fastSwipeThreshold = 0.3; // пикселей/мс (быстрый свайп)
+
+			if (speed > fastSwipeThreshold) {
+				// Резкий свайп - переключаем на следующий/предыдущий
+				if (deltaX < 0) {
+					// Свайп влево (touchStartX > touchEndX) - следующий слайд
+					const nextIndex = (data.currentIndex + 1) % cards.length;
+					scrollToCard(carouselId, carousel, cards, nextIndex);
+				} else {
+					// Свайп вправо (touchStartX < touchEndX) - предыдущий слайд
+					const prevIndex = (data.currentIndex - 1 + cards.length) % cards.length;
+					scrollToCard(carouselId, carousel, cards, prevIndex);
+				}
+			} else {
+				// Медленный драг - используем scroll-snap (остановится на ближайшей)
+				setTimeout(function() {
+					updateCurrentIndexFromScroll(carouselId, carousel, cards);
+				}, 200);
+			}
+
+			isDragging = false;
 			data.isUserInteracting = false;
 		}, { passive: true });
 
 		// Mouse события для десктопа (если нужно)
 		let mouseStartX = 0;
+		let mouseStartTime = 0;
 		let isMouseDown = false;
 
 		carousel.addEventListener('mousedown', function(e) {
 			if (window.innerWidth <= 736) {
 				mouseStartX = e.clientX;
+				mouseStartTime = Date.now();
 				isMouseDown = true;
+				isDragging = true;
 				data.isUserInteracting = true;
 			}
 		});
@@ -135,31 +216,59 @@
 		carousel.addEventListener('mouseup', function(e) {
 			if (isMouseDown && window.innerWidth <= 736) {
 				const mouseEndX = e.clientX;
-				const diff = mouseStartX - mouseEndX;
-				
-				if (Math.abs(diff) > 50) {
-					if (diff > 0) {
-						// Swipe влево - следующий слайд
-						const nextIndex = Math.min(data.currentIndex + 1, cards.length - 1);
-						scrollToCard(carouselId, carousel, cards, nextIndex);
+				const mouseEndTime = Date.now();
+				const deltaX = mouseEndX - mouseStartX;
+				const distance = Math.abs(deltaX);
+				const duration = mouseEndTime - mouseStartTime;
+				const minSwipeDistance = 30;
+
+				if (distance >= minSwipeDistance) {
+					const speed = distance / duration;
+					const fastSwipeThreshold = 0.3;
+
+					if (speed > fastSwipeThreshold) {
+						// Резкий свайп
+						if (deltaX < 0) {
+							// Свайп влево - следующий слайд
+							const nextIndex = (data.currentIndex + 1) % cards.length;
+							scrollToCard(carouselId, carousel, cards, nextIndex);
+						} else {
+							// Свайп вправо - предыдущий слайд
+							const prevIndex = (data.currentIndex - 1 + cards.length) % cards.length;
+							scrollToCard(carouselId, carousel, cards, prevIndex);
+						}
 					} else {
-						// Swipe вправо - предыдущий слайд
-						const prevIndex = Math.max(data.currentIndex - 1, 0);
-						scrollToCard(carouselId, carousel, cards, prevIndex);
+						// Медленный драг
+						setTimeout(function() {
+							updateCurrentIndexFromScroll(carouselId, carousel, cards);
+						}, 200);
 					}
+				} else {
+					// Слишком маленький свайп
+					setTimeout(function() {
+						updateCurrentIndexFromScroll(carouselId, carousel, cards);
+					}, 200);
 				}
-				
+
 				isMouseDown = false;
+				isDragging = false;
 				data.isUserInteracting = false;
 			}
 		});
 
 		carousel.addEventListener('mouseleave', function() {
-			isMouseDown = false;
+			if (isMouseDown) {
+				isMouseDown = false;
+				isDragging = false;
+				data.isUserInteracting = false;
+				setTimeout(function() {
+					updateCurrentIndexFromScroll(carouselId, carousel, cards);
+				}, 200);
+			}
 		});
 	}
 
-	// Обновляем текущий индекс на основе позиции прокрутки
+	// Обновляем текущий индекс на основе позиции прокрутки (для медленного драга)
 	function updateCurrentIndexFromScroll(carouselId, carousel, cards) {
 		const data = carouselData[carouselId];
 		if (!data) return;
@@ -169,13 +278,15 @@
 		const gap = 16; // 1rem = 16px
 		const cardWithGap = cardWidth + gap;
 
-		// Находим ближайшую карточку
+		// Находим ближайшую карточку к центру видимой области
+		const centerX = scrollLeft + carousel.offsetWidth / 2;
 		let closestIndex = 0;
 		let minDistance = Infinity;
 
 		cards.forEach((card, index) => {
 			const cardLeft = index * cardWithGap;
-			const distance = Math.abs(scrollLeft - cardLeft);
+			const cardCenter = cardLeft + cardWidth / 2;
+			const distance = Math.abs(centerX - cardCenter);
 			if (distance < minDistance) {
 				minDistance = distance;
 				closestIndex = index;
@@ -189,23 +300,7 @@
 	}
 
 	function handleSwipe(carouselId, carousel, cards) {
-		const data = carouselData[carouselId];
-		if (!data) return;
-
-		const swipeThreshold = 50;
-		const diff = data.touchStartX - data.touchEndX;
-
-		if (Math.abs(diff) > swipeThreshold) {
-			if (diff > 0) {
-				// Swipe влево (палец двигался влево) - следующий слайд
-				const nextIndex = Math.min(data.currentIndex + 1, cards.length - 1);
-				scrollToCard(carouselId, carousel, cards, nextIndex);
-			} else {
-				// Swipe вправо (палец двигался вправо) - предыдущий слайд
-				const prevIndex = Math.max(data.currentIndex - 1, 0);
-				scrollToCard(carouselId, carousel, cards, prevIndex);
-			}
-		}
+		// Эта функция больше не используется, логика перенесена в setupSwipe
 	}
 
 	function scrollToCard(carouselId, carousel, cards, index) {
