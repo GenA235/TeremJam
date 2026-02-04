@@ -99,6 +99,15 @@
 		const data = carouselData[carouselId];
 		if (!data) return;
 
+		// Отслеживаем прокрутку для синхронизации индекса
+		let scrollTimeout;
+		carousel.addEventListener('scroll', function() {
+			clearTimeout(scrollTimeout);
+			scrollTimeout = setTimeout(function() {
+				updateCurrentIndexFromScroll(carouselId, carousel, cards);
+			}, 100);
+		}, { passive: true });
+
 		// Touch события для swipe
 		carousel.addEventListener('touchstart', function(e) {
 			data.touchStartX = e.changedTouches[0].screenX;
@@ -131,13 +140,13 @@
 				if (Math.abs(diff) > 50) {
 					if (diff > 0) {
 						// Swipe влево - следующий слайд
-						data.currentIndex = (data.currentIndex + 1) % cards.length;
+						const nextIndex = Math.min(data.currentIndex + 1, cards.length - 1);
+						scrollToCard(carouselId, carousel, cards, nextIndex);
 					} else {
 						// Swipe вправо - предыдущий слайд
-						data.currentIndex = (data.currentIndex - 1 + cards.length) % cards.length;
+						const prevIndex = Math.max(data.currentIndex - 1, 0);
+						scrollToCard(carouselId, carousel, cards, prevIndex);
 					}
-					scrollToCard(carouselId, carousel, cards, data.currentIndex);
-					updateDots(carouselId, data.currentIndex);
 				}
 				
 				isMouseDown = false;
@@ -150,6 +159,35 @@
 		});
 	}
 
+	// Обновляем текущий индекс на основе позиции прокрутки
+	function updateCurrentIndexFromScroll(carouselId, carousel, cards) {
+		const data = carouselData[carouselId];
+		if (!data) return;
+
+		const scrollLeft = carousel.scrollLeft;
+		const cardWidth = cards[0] ? cards[0].offsetWidth : 0;
+		const gap = 16; // 1rem = 16px
+		const cardWithGap = cardWidth + gap;
+
+		// Находим ближайшую карточку
+		let closestIndex = 0;
+		let minDistance = Infinity;
+
+		cards.forEach((card, index) => {
+			const cardLeft = index * cardWithGap;
+			const distance = Math.abs(scrollLeft - cardLeft);
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestIndex = index;
+			}
+		});
+
+		if (data.currentIndex !== closestIndex) {
+			data.currentIndex = closestIndex;
+			updateDots(carouselId, closestIndex);
+		}
+	}
+
 	function handleSwipe(carouselId, carousel, cards) {
 		const data = carouselData[carouselId];
 		if (!data) return;
@@ -159,14 +197,14 @@
 
 		if (Math.abs(diff) > swipeThreshold) {
 			if (diff > 0) {
-				// Swipe влево - следующий слайд
-				data.currentIndex = (data.currentIndex + 1) % cards.length;
+				// Swipe влево (палец двигался влево) - следующий слайд
+				const nextIndex = Math.min(data.currentIndex + 1, cards.length - 1);
+				scrollToCard(carouselId, carousel, cards, nextIndex);
 			} else {
-				// Swipe вправо - предыдущий слайд
-				data.currentIndex = (data.currentIndex - 1 + cards.length) % cards.length;
+				// Swipe вправо (палец двигался вправо) - предыдущий слайд
+				const prevIndex = Math.max(data.currentIndex - 1, 0);
+				scrollToCard(carouselId, carousel, cards, prevIndex);
 			}
-			scrollToCard(carouselId, carousel, cards, data.currentIndex);
-			updateDots(carouselId, data.currentIndex);
 		}
 	}
 
@@ -176,12 +214,22 @@
 		const card = cards[index];
 		const cardWidth = card.offsetWidth;
 		const gap = 16; // 1rem = 16px
-		const scrollPosition = index * (cardWidth + gap) - (carousel.offsetWidth - cardWidth) / 2;
+		const cardWithGap = cardWidth + gap;
+		
+		// Прокручиваем так, чтобы карточка была по центру (или слева на мобильных)
+		const scrollPosition = index * cardWithGap;
 		
 		carousel.scrollTo({
 			left: scrollPosition,
 			behavior: 'smooth'
 		});
+
+		// Обновляем индекс сразу
+		const data = carouselData[carouselId];
+		if (data) {
+			data.currentIndex = index;
+			updateDots(carouselId, index);
+		}
 	}
 
 	function updateDots(carouselId, index) {
