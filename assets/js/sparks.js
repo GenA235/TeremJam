@@ -20,7 +20,12 @@
 			return colorValue.split(',').map(c => c.trim()).filter(c => c);
 		},
 		get maxSparks() {
-			return parseInt(getComputedStyle(document.documentElement).getPropertyValue('--spark-max-count').trim()) || 50;
+			const baseMax = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--spark-max-count').trim()) || 50;
+			// На мобильных устройствах уменьшаем в 3 раза
+			if (window.innerWidth <= 736) {
+				return Math.floor(baseMax / 3);
+			}
+			return baseMax;
 		},
 		get cursorInfluence() {
 			return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--spark-cursor-influence').trim()) || 0.3;
@@ -85,6 +90,8 @@
 
 		// Отслеживаем движение мыши
 		document.addEventListener('mousemove', handleMouseMove, { passive: true });
+		// Отслеживаем touch события для свайпа
+		document.addEventListener('touchmove', handleTouchMove, { passive: true });
 		window.addEventListener('resize', handleResize, { passive: true });
 
 		// Запускаем анимацию
@@ -112,6 +119,33 @@
 		// Ограничиваем длину траектории
 		if (mouseTrail.length > maxTrailLength) {
 			mouseTrail.shift();
+		}
+	}
+
+	// Обработка touch событий для свайпа (та же логика, что и для мыши)
+	function handleTouchMove(e) {
+		if (e.touches.length > 0) {
+			const touch = e.touches[0];
+			prevMouseX = mouseX;
+			prevMouseY = mouseY;
+			mouseX = touch.clientX;
+			mouseY = touch.clientY;
+			
+			// Вычисляем скорость движения для завихрения
+			mouseVelocityX = mouseX - prevMouseX;
+			mouseVelocityY = mouseY - prevMouseY;
+			
+			// Добавляем текущую позицию в траекторию
+			mouseTrail.push({ x: mouseX, y: mouseY, time: Date.now() });
+			
+			// Удаляем старые точки (старше 500мс)
+			const now = Date.now();
+			mouseTrail = mouseTrail.filter(point => now - point.time < 500);
+			
+			// Ограничиваем длину траектории
+			if (mouseTrail.length > maxTrailLength) {
+				mouseTrail.shift();
+			}
 		}
 	}
 

@@ -47,7 +47,6 @@
 		// Инициализируем данные карусели
 		carouselData[carouselId] = {
 			currentIndex: 0,
-			autoScrollInterval: null,
 			touchStartX: 0,
 			touchEndX: 0,
 			isUserInteracting: false,
@@ -57,7 +56,6 @@
 		// Создаем индикаторы только для мобильных
 		if (window.innerWidth <= 736) {
 			createDots(cards.length, dotsContainer);
-			setupAutoScroll(carouselId, carousel, cards);
 			setupSwipe(carouselId, carousel, cards);
 			setupDotsNavigation(carouselId, carousel, cards);
 		}
@@ -72,17 +70,12 @@
 		const cards = carousel.querySelectorAll('.tz-program-card');
 		if (cards.length === 0) return;
 
-		// Очищаем старые индикаторы и интервалы
+		// Очищаем старые индикаторы
 		dotsContainer.innerHTML = '';
-		if (carouselData[carouselId] && carouselData[carouselId].autoScrollInterval) {
-			clearInterval(carouselData[carouselId].autoScrollInterval);
-			carouselData[carouselId].autoScrollInterval = null;
-		}
 
 		// Переинициализируем для нового размера
 		if (window.innerWidth <= 736) {
 			createDots(cards.length, dotsContainer);
-			setupAutoScroll(carouselId, carousel, cards);
 			setupSwipe(carouselId, carousel, cards);
 			setupDotsNavigation(carouselId, carousel, cards);
 		}
@@ -102,20 +95,6 @@
 		}
 	}
 
-	function setupAutoScroll(carouselId, carousel, cards) {
-		const data = carouselData[carouselId];
-		if (!data) return;
-
-		// Автопрокрутка каждые 2 секунды
-		data.autoScrollInterval = setInterval(function() {
-			if (!data.isUserInteracting && window.innerWidth <= 736) {
-				data.currentIndex = (data.currentIndex + 1) % cards.length;
-				scrollToCard(carouselId, carousel, cards, data.currentIndex);
-				updateDots(carouselId, data.currentIndex);
-			}
-		}, 2000);
-	}
-
 	function setupSwipe(carouselId, carousel, cards) {
 		const data = carouselData[carouselId];
 		if (!data) return;
@@ -124,25 +103,12 @@
 		carousel.addEventListener('touchstart', function(e) {
 			data.touchStartX = e.changedTouches[0].screenX;
 			data.isUserInteracting = true;
-			
-			// Пауза автопрокрутки при взаимодействии
-			if (data.autoScrollInterval) {
-				clearInterval(data.autoScrollInterval);
-				data.autoScrollInterval = null;
-			}
 		}, { passive: true });
 
 		carousel.addEventListener('touchend', function(e) {
 			data.touchEndX = e.changedTouches[0].screenX;
 			handleSwipe(carouselId, carousel, cards);
-			
-			// Возобновляем автопрокрутку через небольшую задержку
-			setTimeout(function() {
-				data.isUserInteracting = false;
-				if (window.innerWidth <= 736) {
-					setupAutoScroll(carouselId, carousel, cards);
-				}
-			}, 3000);
+			data.isUserInteracting = false;
 		}, { passive: true });
 
 		// Mouse события для десктопа (если нужно)
@@ -154,11 +120,6 @@
 				mouseStartX = e.clientX;
 				isMouseDown = true;
 				data.isUserInteracting = true;
-				
-				if (data.autoScrollInterval) {
-					clearInterval(data.autoScrollInterval);
-					data.autoScrollInterval = null;
-				}
 			}
 		});
 
@@ -180,10 +141,7 @@
 				}
 				
 				isMouseDown = false;
-				setTimeout(function() {
-					data.isUserInteracting = false;
-					setupAutoScroll(carouselId, carousel, cards);
-				}, 3000);
+				data.isUserInteracting = false;
 			}
 		});
 
@@ -273,18 +231,6 @@
 				data.currentIndex = index;
 				scrollToCard(carouselId, carousel, cards, data.currentIndex);
 				updateDots(carouselId, data.currentIndex);
-				
-				// Пауза автопрокрутки при клике
-				data.isUserInteracting = true;
-				if (data.autoScrollInterval) {
-					clearInterval(data.autoScrollInterval);
-					data.autoScrollInterval = null;
-				}
-				
-				setTimeout(function() {
-					data.isUserInteracting = false;
-					setupAutoScroll(carouselId, carousel, cards);
-				}, 3000);
 			});
 		});
 	}
