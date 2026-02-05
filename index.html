@@ -26,9 +26,9 @@
 				<!-- Intro -->
 					<div id="intro" class="tz-hero">
 						<div class="tz-hero-media" aria-hidden="true">
-							<video autoplay muted loop playsinline preload="auto" poster="images/bg.jpg">
+							<img src="images/bg.jpg" alt="" class="tz-hero-fallback" />
+							<video autoplay muted loop playsinline preload="metadata" poster="images/bg.jpg">
 								<source src="video/main_back.webm" type="video/webm" />
-								<img src="images/bg.jpg" alt="" />
 							</video>
 						</div>
 						<div class="tz-hero-overlay" aria-hidden="true"></div>
@@ -527,7 +527,7 @@
 								</div>
 								<div class="block-image">
 									<div class="tz-map">
-										<iframe src="https://yandex.ru/map-widget/v1/?text=%D0%A2%D0%B5%D1%80%D0%B5%D0%BC%20%D0%90%D1%81%D1%82%D0%B0%D1%88%D0%BE%D0%B2%D0%BE&z=9" allowfullscreen="true" title="Яндекс карты: Терем Асташово"></iframe>
+										<iframe src="https://yandex.ru/map-widget/v1/?text=%D0%A2%D0%B5%D1%80%D0%B5%D0%BC%20%D0%90%D1%81%D1%82%D0%B0%D1%88%D0%BE%D0%B2%D0%BE&z=9" allowfullscreen="true" title="Яндекс карты: Терем Асташово" loading="lazy"></iframe>
 									</div>
 									<p style="margin-top: 0.75rem; opacity: 0.9;">
 										<a href="https://yandex.ru/maps/?text=%D0%A2%D0%B5%D1%80%D0%B5%D0%BC%20%D0%90%D1%81%D1%82%D0%B0%D1%88%D0%BE%D0%B2%D0%BE" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
@@ -1029,6 +1029,7 @@
 		<script src="assets/js/sparks.js"></script>
 		<script src="assets/js/wizard-form.js"></script>
 		<script src="assets/js/program-carousel.js"></script>
+		<script src="assets/js/video-loader.js"></script>
 
 	</body>
 </html>

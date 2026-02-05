@@ -117,11 +117,13 @@
 		}
 
 	// Play initial animations on page load.
+		// Показываем контент сразу, не ждем загрузки всех ресурсов
+		window.setTimeout(function() {
+			$body.removeClass('is-preload');
+		}, 50);
+		
 		$window.on('load', function() {
 			window.scrollTo(0, 0);
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
 		});
 
 	// Scrolly.
