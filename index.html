@@ -26,11 +26,10 @@
 				<!-- Intro -->
 					<div id="intro" class="tz-hero">
 						<div class="tz-hero-media" aria-hidden="true">
-							<!-- TODO: сюда подставим реальный ролик, когда будет готов (пока работает постер/фото) -->
-							<video autoplay muted loop playsinline poster="images/DSC_2797.webp">
-								<source src="assets/video/teremjam-hero.mp4" type="video/mp4" />
+							<video autoplay muted loop playsinline preload="auto" poster="images/bg.jpg">
+								<source src="video/main_back.webm" type="video/webm" />
+								<img src="images/bg.jpg" alt="" />
 							</video>
-							<img src="images/bg.jpg" alt="" />
 						</div>
 						<div class="tz-hero-overlay" aria-hidden="true"></div>
 						<div class="tz-hero-inner">
@@ -132,6 +131,12 @@
 											</div>
 										</div>
 										<div class="tz-program-carousel-dots" id="aboutCarouselDots"></div>
+									</div>
+
+									<div class="tz-video-wrapper" style="margin-top: 2rem;">
+										<div class="tz-video-container">
+											<iframe src="https://vk.com/video_ext.php?oid=-225828959&id=456239113" width="853" height="480" style="background-color: #000" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen loading="lazy"></iframe>
+										</div>
 									</div>
 
 									<div class="tz-cta-row" style="justify-content: flex-start; margin-top: 1.5rem;">
@@ -421,60 +426,6 @@
 									<p style="margin-top: 1rem; opacity: 0.9;">* программа может двигаться, но "каркас" понятен.</p>
 									<div class="tz-cta-row" style="justify-content: flex-start;">
 										<a href="#tickets" class="button primary scrolly">Купить билет</a>
-									</div>
-								</div>
-							</div>
-						</section>
-
-						<!-- 9) Стань частью -->
-						<section id="join" class="content-block" data-block="join" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
-							<div class="block-content">
-								<div class="block-text" style="width: 100%;">
-									<h2>Стань частью ТеремJam 2026</h2>
-									<p>
-										ТеремJam — это не "ещё один фестиваль". Это три дня в тайге, где живая музыка, джемы, костёр и люди собираются в одно большое тёплое "своё".
-										Хочешь быть не "гостем", а частью команды и легенды? Оставляй заявку — и мы свяжемся с тобой!
-									</p>
-									<div class="tz-program-carousel-wrapper">
-										<div class="tz-program-carousel" id="joinCarousel">
-											<div class="tz-program-card">
-												<div class="tz-program-card-image">
-													<img src="images/pic02.jpg" alt="Партнёрам и спонсорам" />
-												</div>
-												<div class="tz-program-card-content">
-													<h3>Партнёрам и спонсорам</h3>
-													<p>Сделаем нативно и красиво — без ощущения "маркетинга в лесу".</p>
-													<div class="tz-card-actions" style="margin-top: 1rem;">
-														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
-													</div>
-												</div>
-											</div>
-											<div class="tz-program-card">
-												<div class="tz-program-card-image">
-													<img src="images/pic03.jpg" alt="Участникам ярмарки" />
-												</div>
-												<div class="tz-program-card-content">
-													<h3>Участникам ярмарки</h3>
-													<p>Handmade, локальные бренды, экологичные продукты — это атмосфера фестиваля.</p>
-													<div class="tz-card-actions" style="margin-top: 1rem;">
-														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
-													</div>
-												</div>
-											</div>
-											<div class="tz-program-card">
-												<div class="tz-program-card-image">
-													<img src="images/pic04.jpg" alt="Волонтёрская программа" />
-												</div>
-												<div class="tz-program-card-content">
-													<h3>Волонтёрская программа</h3>
-													<p>Увидеть, как рождается фестиваль изнутри. Особые условия и благодарность.</p>
-													<div class="tz-card-actions" style="margin-top: 1rem;">
-														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="tz-program-carousel-dots" id="joinCarouselDots"></div>
 									</div>
 								</div>
 							</div>
@@ -975,6 +926,60 @@
 								</div>
 								<div class="block-image">
 									<span class="image fit"><img src="images/pic08.jpg" alt="" /></span>
+								</div>
+							</div>
+						</section>
+
+						<!-- Стань частью -->
+						<section id="join" class="content-block" data-block="join" data-image-position="top" data-text-animation="fadeInUp" data-image-animation="fadeInUp">
+							<div class="block-content">
+								<div class="block-text" style="width: 100%;">
+									<h2>Стань частью ТеремJam 2026</h2>
+									<p>
+										ТеремJam — это не "ещё один фестиваль". Это три дня в тайге, где живая музыка, джемы, костёр и люди собираются в одно большое тёплое "своё".
+										Хочешь быть не "гостем", а частью команды и легенды? Оставляй заявку — и мы свяжемся с тобой!
+									</p>
+									<div class="tz-program-carousel-wrapper">
+										<div class="tz-program-carousel" id="joinCarousel">
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic02.jpg" alt="Партнёрам и спонсорам" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Партнёрам и спонсорам</h3>
+													<p>Сделаем нативно и красиво — без ощущения "маркетинга в лесу".</p>
+													<div class="tz-card-actions" style="margin-top: 1rem;">
+														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+													</div>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic03.jpg" alt="Участникам ярмарки" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Участникам ярмарки</h3>
+													<p>Handmade, локальные бренды, экологичные продукты — это атмосфера фестиваля.</p>
+													<div class="tz-card-actions" style="margin-top: 1rem;">
+														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+													</div>
+												</div>
+											</div>
+											<div class="tz-program-card">
+												<div class="tz-program-card-image">
+													<img src="images/pic04.jpg" alt="Волонтёрская программа" />
+												</div>
+												<div class="tz-program-card-content">
+													<h3>Волонтёрская программа</h3>
+													<p>Увидеть, как рождается фестиваль изнутри. Особые условия и благодарность.</p>
+													<div class="tz-card-actions" style="margin-top: 1rem;">
+														<a class="button" href="https://t.me/TeremJam_support" target="_blank" rel="noopener">Отправить заявку</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="tz-program-carousel-dots" id="joinCarouselDots"></div>
+									</div>
 								</div>
 							</div>
 						</section>

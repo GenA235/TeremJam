@@ -19,10 +19,62 @@
 #intro.tz-hero .tz-hero-media video,
 #intro.tz-hero .tz-hero-media img {
 	position: absolute;
-	inset: 0;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: center center;
+	transform: scale(var(--hero-video-scale-factor, 1.0));
+	transform-origin: center center;
+}
+
+/* Для десктопа: заполнение экрана, ширина может выходить за пределы для избежания черных полос */
+@media screen and (min-width: 737px) {
+	#intro.tz-hero .tz-hero-media video {
+		width: 100%;
+		height: 100%;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		transform: scale(var(--hero-video-scale-factor, 1.0));
+		transform-origin: center center;
+	}
+}
+
+/* Для мобильных в вертикальном разрешении: используем середину кадра, обрезаем по бокам */
+@media screen and (max-width: 736px) and (orientation: portrait) {
+	#intro.tz-hero .tz-hero-media video {
+		width: auto;
+		height: 100%;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		/* Центрируем видео по горизонтали, если оно шире экрана */
+		left: 50%;
+		transform: translateX(-50%) scale(var(--hero-video-scale-factor, 1.0));
+		transform-origin: center center;
+		max-width: none;
+	}
+}
+
+/* Для мобильных в горизонтальном разрешении */
+@media screen and (max-width: 736px) and (orientation: landscape) {
+	#intro.tz-hero .tz-hero-media video {
+		width: 100%;
+		height: auto;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		/* Центрируем видео по вертикали, если оно выше экрана */
+		top: 50%;
+		transform: translateY(-50%) scale(var(--hero-video-scale-factor, 1.0));
+		transform-origin: center center;
+		max-height: none;
+	}
 }
 
 #intro.tz-hero .tz-hero-overlay {
@@ -111,6 +163,11 @@
 
 .tz-bullets li span {
 	color: var(--top-section-text-color, #edeec4);
+}
+
+.tz-bullets li strong {
+	color: var(--top-section-text-color, #edeec4);
+	font-weight: normal;
 }
 
 .tz-cta-row {
@@ -596,4 +653,34 @@ a.button.primary[href="#buy"]:disabled,
 	.tz-program-carousel-dots {
 		display: flex;
 	}
+}
+
+/* -----------------------------
+   Video wrapper (VK video)
+------------------------------ */
+
+.tz-video-wrapper {
+	width: 100%;
+	margin: 2rem 0;
+}
+
+.tz-video-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	height: 0;
+	overflow: hidden;
+	background-color: #000;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid rgba(248, 255, 196, 0.18);
+}
+
+.tz-video-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
 }
